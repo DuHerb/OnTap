@@ -6,7 +6,7 @@ https://drive.google.com/open?id=1puUH3eHe9icxXoxGLr184Y4JZJzkFN6X
 
 trying image here:
 
-![Component Tree](https://drive.google.com/file/d/1eDJOL7d_e_jTsRE-ha6-jbtnBBRXO_Lk/view?usp=sharing)
+![Component Tree](/dev_resources/on-tap-wireframe.jpg)
 
 ## Available Scripts
 
