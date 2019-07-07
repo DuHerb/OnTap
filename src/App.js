@@ -13,17 +13,17 @@ export default class App extends React.Component {
   }
 
   getKegsOnTap() {
-    return this.state.kegs
+    return this.state.kegs.filter(keg => keg.onTap);
   }
 
   render() {
-    console.log(this.getKegsOnTap());
-    
+    const kegs = this.getKegsOnTap();
+
     return (
       <>
         <HashRouter>
           <Header/>
-          <Route exact path='/' render={()=><PatronView/>} />
+          <Route exact path='/' render={()=><PatronView kegs={kegs}/>} />
           <Route path='/pos' render={()=><POSView/>}  />
           <Route path='/admin' render={()=><AdminView/>} />
         </HashRouter>
@@ -31,34 +31,3 @@ export default class App extends React.Component {
     )
   }
 }
-
-
-// const beerList = [
-//     {
-//       name: 'Twilight',
-//       brewery: 'Deschutes',
-//       style: 'Pale Ale',
-//       abv: '5.5',
-//       pintsLeft: '124',
-//       price: '6',
-//       description: 'Cool, Light Bodied Summer Ale.'
-//     },
-//     {
-//       name: 'Mirror Pond',
-//       brewery: 'Deschutes',
-//       style: 'Pale Ale',
-//       abv: '5',
-//       pintsLeft: '124',
-//       price: '5',
-//       description: 'Classic, Style Defining Pale Ale'
-//     },
-//     {
-//       name: 'Fresh Squeezed',
-//       brewery: 'Deschutes',
-//       style: 'IPA',
-//       abv: '6.8',
-//       pintsLeft: '124',
-//       price: '6.5',
-//       description: 'Citra and Mosiac Hops'
-//     }
-//   ]
