@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-// import { Link } from '@material-ui/core';
 import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
@@ -39,7 +38,7 @@ export default function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="white">
+      <AppBar position="static" color="default">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
             <MenuIcon />
