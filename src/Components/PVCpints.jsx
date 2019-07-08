@@ -20,7 +20,7 @@ const PVCpints = ({pintsLeft}) => {
 }
 
 PVCpints.propTypes = {
-  pintsLeft: PropTypes.string
+  pintsLeft: PropTypes.number
 }
 
 export default PVCpints
