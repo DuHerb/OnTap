@@ -28,6 +28,26 @@ export const kegs = [
       price: '6.5',
       description: 'Citra and Mosiac Hops',
       onTap: true
+    },
+    {
+      name: 'Fresh Haze',
+      brewery: 'Deschutes',
+      style: 'Hazy IPA',
+      abv: '6.2',
+      pintsLeft: '124',
+      price: '6.5',
+      description: 'Citra and Mosiac Hops, but Hazy',
+      onTap: false
+    },
+    {
+      name: 'Black Butte Porter',
+      brewery: 'Deschutes',
+      style: 'Porter',
+      abv: '5.2',
+      pintsLeft: '124',
+      price: '5.5',
+      description: 'Chocolate and Coffee Notes',
+      onTap: false
     }
   ]
 
