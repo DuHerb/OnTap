@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   navLink: {
-    textDecoration: "none"
+    textDecoration: "none",
+    color: 'black'
   }
 }));
 
