@@ -46,10 +46,6 @@ const useStyles = makeStyles(theme => ({
   },
   noPadding: {
     padding: '0'
-  },
-  colorBoxItem2: {
-    flexGrow: 2,
-    width: '30%'
   }
 }));
 
