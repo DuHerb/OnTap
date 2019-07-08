@@ -19,8 +19,7 @@ import { Paper } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: "60%",
-    margin: '10px auto'
+    margin: '5px auto'
   },
   media: {
     height: 0,
