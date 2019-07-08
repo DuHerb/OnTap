@@ -14,7 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PVCprice from './PVCprice';
 import PVCabv from './PVCabv';
 import PVCpints from './PVCpints';
-import { Paper } from '@material-ui/core'
+import { Paper, Button } from '@material-ui/core'
 
 
 const useStyles = makeStyles(theme => ({
@@ -65,7 +65,7 @@ function PVCard(props) {
     <CardHeader
       title={props.name}
       subheader={props.brewery}
-      action = { <CardActions disableSpacing>
+      action = { (props.view === 'patron') ? <CardActions disableSpacing>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -76,6 +76,9 @@ function PVCard(props) {
         >
           <ExpandMoreIcon />
         </IconButton>
+      </CardActions> :
+      <CardActions>
+        <Button variant="outlined">Sell Pint</Button>
       </CardActions>}
     />
     <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -101,7 +104,7 @@ PVCard.propTypes = {
   brewery: PropTypes.string,
   style: PropTypes.string,
   abv: PropTypes.string,
-  pintsLeft: PropTypes.string,
+  pintsLeft: PropTypes.number,
   price: PropTypes.string,
   description: PropTypes.string
 }
