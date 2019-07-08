@@ -11,6 +11,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import PVCprice from './PVCprice';
+import PVCabv from './PVCabv';
+import PVCpints from './PVCpints';
+import { Paper } from '@material-ui/core'
 
 
 const useStyles = makeStyles(theme => ({
@@ -35,7 +39,23 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: red[500],
   },
+  colorBoxContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  noPadding: {
+    padding: '0'
+  },
+  colorBoxItem2: {
+    flexGrow: 2,
+    width: '30%'
+  }
 }));
+
+const inlineStyle = {
+  padding: 0
+}
 
 function PVCard(props) {
   const classes = useStyles();
@@ -70,8 +90,12 @@ function PVCard(props) {
         </Typography>
       </CardContent>
     </Collapse>
-    <CardContent>
-      color coded data goes here
+    <CardContent className={classes.noPadding} style={inlineStyle}>
+      <Paper className={classes.colorBoxContainer} square={true}>
+        <PVCprice price={props.price}/>
+        <PVCabv abv={props.abv}/>
+        <PVCpints pintsLeft={props.pintsLeft}/>
+      </Paper>
     </CardContent>
   </Card>
   )
