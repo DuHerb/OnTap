@@ -13,9 +13,9 @@ WireFrame and Component Tree:
 
 ## View Project
 
-1 [your local directory]$ git clone https://github.com/DuHerb/OnTap.git
-2 [OnTap]$ npm install
-3 [OnTap]$ npm start
+- [your local directory]$ git clone https://github.com/DuHerb/OnTap.git
+- [OnTap]$ npm install
+- [OnTap]$ npm start
 
 ## NPM Scripts:
 ### `npm start`
