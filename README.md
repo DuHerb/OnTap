@@ -13,10 +13,11 @@ WireFrame and Component Tree:
 
 ## View Project
 
-Clone this project locally.
+1 [your local directory]$ git clone https://github.com/DuHerb/OnTap.git
+2 [OnTap]$ npm install
+3 [OnTap]$ npm start
 
-In the project directory, you can run:
-
+## NPM Scripts:
 ### `npm start`
 
 Runs the app in the development mode.<br>
