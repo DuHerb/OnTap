@@ -4,7 +4,7 @@ A keg/beer menu CRUD application.  Incudes patron, POS and Admin views.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 <hr>
 ## Author: Dustin Herboldshimer
-##Version: 0.0.1 July 5, 2019
+## Version: 0.0.1 July 5, 2019
 ## Development Resources
 
 WireFrame and Component Tree:
