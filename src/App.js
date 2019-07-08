@@ -9,7 +9,7 @@ import { kegs } from './store.js'
 
 export default class App extends React.Component {
   state = {
-    kegs
+    kegs,
   }
 
   getKegsOnTap() {
@@ -20,14 +20,12 @@ export default class App extends React.Component {
     const kegsOnTap = this.getKegsOnTap();
 
     return (
-      <>
         <HashRouter>
           <Header/>
-          <Route exact path='/' render={()=><PatronView kegs={kegsOnTap}/>} />
-          <Route path='/pos' render={()=><POSView kegs={kegsOnTap}/>}  />
+          <Route exact path='/' render={()=><PatronView kegs={kegsOnTap} />} />
+          <Route path='/pos' render={()=><POSView kegs={kegsOnTap} />}  />
           <Route path='/admin' render={()=><AdminView/>} />
         </HashRouter>
-      </>
     )
   }
 }
