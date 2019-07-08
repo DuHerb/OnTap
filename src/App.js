@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Header';
+import PatronView from './Components/PatronView';
+import POSView from './Components/POSView';
+import AdminView from './Components/AdminView';
+import { Route, HashRouter } from 'react-router-dom';
+import { kegs } from './store.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    kegs,
+  }
+
+  getKegsOnTap() {
+    return this.state.kegs.filter(keg => keg.onTap);
+  }
+
+  render() {
+    const kegsOnTap = this.getKegsOnTap();
+
+    return (
+        <HashRouter>
+          <Header/>
+          <Route exact path='/' render={()=><PatronView kegs={kegsOnTap} />} />
+          <Route path='/pos' render={()=><POSView kegs={kegsOnTap} />}  />
+          <Route path='/admin' render={()=><AdminView/>} />
+        </HashRouter>
+    )
+  }
 }
-
-export default App;
