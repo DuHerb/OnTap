@@ -15,7 +15,7 @@ export default function PatronView({kegs}) {
           abv={keg.abv}
           pintsLeft={keg.pintsLeft}
           price={keg.price}
-          description={keg.style}
+          description={keg.description}
           key={keg.name}
         />
         )}
