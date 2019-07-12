@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/styles'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    margin: '10px'
   },
   paper: {
     width: '100%',
