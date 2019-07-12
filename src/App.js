@@ -17,13 +17,13 @@ export default class App extends React.Component {
   }
 
   render() {
-    const kegsOnTap = this.getKegsOnTap();
+    // const kegsOnTap = this.getKegsOnTap();
 
     return (
         <HashRouter>
           <Header/>
-          <Route exact path='/' render={()=><PatronView kegs={kegsOnTap} />} />
-          <Route path='/pos' render={()=><POSView kegs={kegsOnTap} />}  />
+          <Route exact path='/' render={()=><PatronView kegs={this.getKegsOnTap()} />} />
+          <Route path='/pos' render={()=><POSView kegs={this.getKegsOnTap()} />}  />
           <Route path='/admin' render={()=><AdminView/>} />
         </HashRouter>
     )
