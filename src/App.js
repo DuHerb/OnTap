@@ -6,7 +6,6 @@ import POSView from './Components/POSView';
 import AdminView from './Components/AdminView';
 import { Route, HashRouter } from 'react-router-dom';
 import { kegs } from './store.js'
-import { Button } from '@material-ui/core'
 
 export default class App extends React.Component {
   state = {
@@ -33,8 +32,8 @@ export default class App extends React.Component {
         <HashRouter>
           <Header/>
             <Route exact path='/' render={()=><PatronView kegs={this.getKegsOnTap()}/>} />
-            <Route path='/pos' render={()=><POSView kegs={this.getKegsOnTap()} onSellPint={this.handleSellPint} />}  />
-            <Route path='/admin' render={()=><AdminView/>} />
+            <Route path='/pos' render={()=><POSView kegs={this.getKegsOnTap()} onSellPint={this.handleSellPint}/>} />
+            <Route path='/admin' render={()=><AdminView kegsOnTap={this.getKegsOnTap()} kegs={this.state.kegs}/>} />
         </HashRouter>
     )
   }
