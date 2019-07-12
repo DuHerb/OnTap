@@ -32,10 +32,9 @@ export default class App extends React.Component {
     return (
         <HashRouter>
           <Header/>
-          <Button onClick={()=>this.handleSellPint('Twilight')}>Sell Pint</Button>
-          <Route exact path='/' render={()=><PatronView kegs={this.getKegsOnTap()}/>} />
-          <Route path='/pos' render={()=><POSView kegs={this.getKegsOnTap()} onSellPint={this.handleSellPint} />}  />
-          <Route path='/admin' render={()=><AdminView/>} />
+            <Route exact path='/' render={()=><PatronView kegs={this.getKegsOnTap()}/>} />
+            <Route path='/pos' render={()=><POSView kegs={this.getKegsOnTap()} onSellPint={this.handleSellPint} />}  />
+            <Route path='/admin' render={()=><AdminView/>} />
         </HashRouter>
     )
   }
