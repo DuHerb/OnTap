@@ -13,8 +13,11 @@ const useStyles = makeStyles({
 
 const PVCabv = ({abv}) => {
   const classes = useStyles();
+  const getBG = () => {
+    return abv > 6 ? {backgroundColor: 'red'} : {backgroundColor: 'green'}
+  }
   return (
-    <div className={classes.container}>
+    <div className={classes.container} style={getBG()}>
       <p>ABV: {abv}%</p>
     </div>
   )
