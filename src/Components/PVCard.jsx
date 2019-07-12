@@ -78,7 +78,7 @@ function PVCard(props) {
         </IconButton>
       </CardActions> :
       <CardActions>
-        <Button variant="outlined">Sell Pint</Button>
+        <Button variant="outlined" onClick={()=>props.onSellPint(props.name)}>Sell Pint</Button>
       </CardActions>}
     />
     <Collapse in={expanded} timeout="auto" unmountOnExit>

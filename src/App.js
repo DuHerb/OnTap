@@ -13,27 +13,22 @@ export default class App extends React.Component {
     kegs,
   }
 
+  //Helper Functions
   getKegsOnTap() {
     return this.state.kegs.filter(keg => keg.onTap);
   }
 
   getBeerIndex = (beerName) => kegs.findIndex((beer)=> beer.name === beerName)
 
+  //Handler Function
   handleSellPint = (beerName) => {
     let selectedBeerIndex = this.getBeerIndex(beerName);
-    // console.log(selectedBeerIndex);
-    // console.log({...this.state.kegs[selectedBeerIndex]});
-    // let thisPintsLeft = this.state.kegs[selectedBeerIndex].pintsLeft;
-    // console.log(thisPintsLeft);
-    let updatedKegList = [...kegs];
-    updatedKegList[selectedBeerIndex].pintsLeft = updatedKegList[selectedBeerIndex].pintsLeft - 1;
-    this.setState({kegs: updatedKegList});
+    let updatedKegs = [...kegs];
+    updatedKegs[selectedBeerIndex].pintsLeft = updatedKegs[selectedBeerIndex].pintsLeft - 1;
+    this.setState({kegs: updatedKegs});
   }
 
-
-
   render() {
-
     return (
         <HashRouter>
           <Header/>

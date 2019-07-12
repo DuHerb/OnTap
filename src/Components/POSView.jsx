@@ -9,11 +9,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function POSView({kegs}) {
+export default function POSView({kegs, onSellPint}) {
   const classes = useStyles();
 
-    // eslint-disable-next-line no-unused-vars
-    const [view, setView] = useState('pos');
+    const [view] = useState('pos');
   return (
     <Grid container>
     <Grid item xs={12} sm={8} className={classes.centered}>
@@ -27,6 +26,7 @@ export default function POSView({kegs}) {
               description={keg.description}
               key={keg.name}
               view={view}
+              onSellPint = {onSellPint}
             />
             )}
     </Grid>
