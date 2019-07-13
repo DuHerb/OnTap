@@ -35,7 +35,6 @@ const AdminCard = ({keg, tapStatus, onToggleTapStatus, onHandleRefillKeg}) => {
     <Card className={classes.adminCard} style={keg.onTap && tapStatus === 'notOnTap' ? {display: 'none'} : {display:'flex'}}>
     <CardContent>
       {keg.name}
-      {console.log(tapStatus)}
     </CardContent>
     <CardActions>
       { keg.onTap && tapStatus === 'onTap' ? <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.name)}}>UnTap</Button> : <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.name)}}>Tap</Button>}
