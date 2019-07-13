@@ -14,14 +14,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function AdminView({kegsOnTap, kegs}) {
+export default function AdminView({kegsOnTap, kegs, onToggleTapStatus}) {
   const classes = useStyles();
 
   return (
-    <Grid container spacing={2} className={classes.root}>
+    <Grid container spacing={1} className={classes.root}>
       <Grid item xs={12} sm={6}>
         <Paper className={classes.paper}>
-          <TapManager kegsOnTap = {kegsOnTap} kegs={kegs}/>
+          <TapManager kegsOnTap = {kegsOnTap} kegs={kegs} onToggleTapStatus={onToggleTapStatus}/>
         </Paper>
       </Grid>
       <Grid item xs={12} sm={6}>

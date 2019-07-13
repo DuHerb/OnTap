@@ -14,16 +14,18 @@ const useStyles = makeStyles({
   }
 })
 
-const AdminCard = ({keg}) => {
+const AdminCard = ({keg, tapStatus, onToggleTapStatus}) => {
   const classes = useStyles();
+
   return (
-    <Card className={classes.adminCard}>
+    <Card className={classes.adminCard} style={keg.onTap && tapStatus === 'notOnTap' ? {display: 'none'} : {display:'flex'}}>
     <CardContent>
       {keg.name}
+      {console.log(tapStatus)}
     </CardContent>
     <CardActions>
-      <Button size="small">Tap</Button>
-      <Button size="small">UnTap</Button>
+      { keg.onTap && tapStatus === 'onTap' ? <Button size="small" onClick={()=>{onToggleTapStatus(keg.name)}}>UnTap</Button> : <Button size="small" onClick={()=>{onToggleTapStatus(keg.name)}}>Tap</Button>}
+      {/* <Button size="small">UnTap</Button> */}
       <Button size='small'>Refill</Button>
       <Button size='small'>Edit</Button>
     </CardActions>
