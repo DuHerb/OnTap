@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: 'url("../../public/Assets/twilight.png")'
   },
   title: {
-    maxWidth: '30%'
+    maxWidth: '35%'
   }
 }));
 
@@ -65,10 +65,10 @@ function PVCard(props) {
   const imageURL = '../Assets/twilight.png';
   const bgImage = {
     backgroundImage: `url(${Twilight})`,
-    backgroundPosition: '70%',
+    backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '50%',
-    opacity: '.8'
+    // backgroundSize: '50%',
+    // opacity: '.8'
   }
 
   function handleExpandClick() {
@@ -79,7 +79,7 @@ function PVCard(props) {
     <Card className={classes.card} raised={true}>
 
     <CardHeader
-      style={bgImage}
+      // style={bgImage}
       title={<Typography className={classes.title}>{props.name}</Typography>}
       subheader={props.brewery}
       action = { (props.view === 'patron') ? <CardActions disableSpacing>
