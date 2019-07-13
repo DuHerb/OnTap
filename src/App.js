@@ -6,6 +6,7 @@ import POSView from './Components/POSView';
 import AdminView from './Components/AdminView';
 import { Route, HashRouter } from 'react-router-dom';
 import { kegs } from './store.js';
+import Button from '@material-ui/core/Button'
 
 export default class App extends React.Component {
   state = {
@@ -27,21 +28,29 @@ export default class App extends React.Component {
     this.setState({kegs: updatedKegs});
   }
 
-  handleToggleTapStatus = (beerName => {
+  handleToggleTapStatus = (beerName) => {
     let selectedBeerIndex = this.getBeerIndex(beerName);
     let updatedKegs = [...kegs];
     updatedKegs[selectedBeerIndex].onTap = !updatedKegs[selectedBeerIndex].onTap;
     this.setState({kegs: updatedKegs});
     console.log(updatedKegs[selectedBeerIndex].onTap);
-  })
+  }
+
+  handleRefillKeg = (beerName) => {
+    let selectedBeerIndex = this.getBeerIndex(beerName);
+    let updatedKegs = [...kegs];
+    updatedKegs[selectedBeerIndex].pintsLeft = 124;
+    this.setState({kegs: updatedKegs});
+  }
 
   render() {
     return (
         <HashRouter>
           <Header/>
+          <Button onClick={()=>{this.handleRefillKeg('Twilight')}}>Refill Test</Button>
             <Route exact path='/' render={()=><PatronView kegs={this.getKegsOnTap()}/>} />
             <Route path='/pos' render={()=><POSView kegs={this.getKegsOnTap()} onSellPint={this.handleSellPint}/>} />
-            <Route path='/admin' render={()=><AdminView kegsOnTap={this.getKegsOnTap()} kegs={this.state.kegs} onToggleTapStatus={this.handleToggleTapStatus}/>} />
+            <Route path='/admin' render={()=><AdminView kegsOnTap={this.getKegsOnTap()} kegs={this.state.kegs} onToggleTapStatus={this.handleToggleTapStatus} onHandleRefillKeg={this.handleRefillKeg}/>} />
         </HashRouter>
     )
   }
