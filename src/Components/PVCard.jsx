@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: 'url("../../public/Assets/twilight.png")'
   },
   title: {
-    maxWidth: '35%'
+    maxWidth: '30%'
   }
 }));
 
@@ -62,14 +62,14 @@ const inlineStyle = {
 function PVCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const imageURL = '../Assets/twilight.png';
-  const bgImage = {
-    backgroundImage: `url(${Twilight})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    // backgroundSize: '50%',
-    // opacity: '.8'
-  }
+  // const imageURL = '../Assets/twilight.png';
+  // const bgImage = {
+  //   backgroundImage: `url(${Twilight})`,
+  //   backgroundPosition: 'center',
+  //   backgroundRepeat: 'no-repeat',
+  //   // backgroundSize: '50%',
+  //   // opacity: '.8'
+  // }
 
   function handleExpandClick() {
     setExpanded(!expanded);
@@ -79,7 +79,7 @@ function PVCard(props) {
     <Card className={classes.card} raised={true}>
 
     <CardHeader
-      // style={bgImage}
+      style={props.bg}
       title={<Typography className={classes.title}>{props.name}</Typography>}
       subheader={props.brewery}
       action = { (props.view === 'patron') ? <CardActions disableSpacing>

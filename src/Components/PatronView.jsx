@@ -2,7 +2,7 @@ import React from 'react';
 import PVCard from './PVCard';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from  '@material-ui/styles'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 const useStyles = makeStyles(theme => ({
   centered: {
@@ -13,15 +13,23 @@ const useStyles = makeStyles(theme => ({
 
 export default function PatronView({kegs}) {
   const classes = useStyles();
+  const bgImages = require.context('../../public/Assets', true)
 
   // eslint-disable-next-line no-unused-vars
-  const [view, setView] = useState('patron');
-
+  // const [view, setView] = useState('patron');
+  const view = 'patron'
   return (
       <Grid container>
         <Grid item xs={12} sm={8} className={classes.centered}>
-          {kegs.map((keg) =>
-            <PVCard name={keg.name}
+          {kegs.map((keg) => {
+            let imgsrc = bgImages('./twilight.png');
+            let bgStyle = {
+              backgroundImage: `url(${imgsrc})`,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }
+
+            return <PVCard name={keg.name}
               brewery={keg.brewery}
               style={keg.style}
               abv={keg.abv}
@@ -30,8 +38,10 @@ export default function PatronView({kegs}) {
               description={keg.description}
               key={keg.name}
               view={view}
+              bg = {bgStyle}
             />
-            )}
+          })
+        }
 
         </Grid>
       </Grid>
