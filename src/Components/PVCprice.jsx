@@ -11,8 +11,11 @@ const useStyles = makeStyles({
 
 const PVCprice = ({price}) => {
   const classes = useStyles();
+  const getBG = () => {
+    return (price > 5.5) ? {backgroundColor: 'yellow'} : {backgroundColor: "green"}
+  }
   return (
-    <div className={classes.container}>
+    <div className={classes.container} style={getBG()}>
       <p>${price}</p>
     </div>
   )

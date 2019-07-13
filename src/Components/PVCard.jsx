@@ -15,6 +15,7 @@ import PVCprice from './PVCprice';
 import PVCabv from './PVCabv';
 import PVCpints from './PVCpints';
 import { Paper, Button } from '@material-ui/core'
+import Twilight from '../Assets/twilight.png'
 
 
 const useStyles = makeStyles(theme => ({
@@ -45,6 +46,12 @@ const useStyles = makeStyles(theme => ({
   },
   noPadding: {
     padding: '0'
+  },
+  headerBG: {
+    backgroundImage: 'url("../../public/Assets/twilight.png")'
+  },
+  title: {
+    maxWidth: '35%'
   }
 }));
 
@@ -55,6 +62,14 @@ const inlineStyle = {
 function PVCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const imageURL = '../Assets/twilight.png';
+  const bgImage = {
+    backgroundImage: `url(${Twilight})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    // backgroundSize: '50%',
+    // opacity: '.8'
+  }
 
   function handleExpandClick() {
     setExpanded(!expanded);
@@ -62,8 +77,10 @@ function PVCard(props) {
 
   return (
     <Card className={classes.card} raised={true}>
+
     <CardHeader
-      title={props.name}
+      // style={bgImage}
+      title={<Typography className={classes.title}>{props.name}</Typography>}
       subheader={props.brewery}
       action = { (props.view === 'patron') ? <CardActions disableSpacing>
         <IconButton
@@ -74,11 +91,12 @@ function PVCard(props) {
           aria-expanded={expanded}
           aria-label="Show more"
         >
+
           <ExpandMoreIcon />
         </IconButton>
       </CardActions> :
       <CardActions>
-        <Button variant="outlined">Sell Pint</Button>
+        <Button variant="outlined" onClick={()=>props.onSellPint(props.name)}>Sell Pint</Button>
       </CardActions>}
     />
     <Collapse in={expanded} timeout="auto" unmountOnExit>
