@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   }
 })
 
-const CrudWindow = ({kegs, viewedBeer}) => {
+const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onSetViewedBeer}) => {
   const classes = useStyles();
 
   const getBeerIndex = (beerName) => kegs.findIndex((beer)=> beer.name === beerName)
@@ -32,13 +32,19 @@ const CrudWindow = ({kegs, viewedBeer}) => {
 
   //delete functions
   const [open, setOpen] = React.useState(false);
-
   function handleClickOpen() {
     setOpen(true);
   }
 
   function handleClose() {
     setOpen(false);
+  }
+
+  const handleOnDeleteKeg = (beerName)=> {
+    let beerToDelete = beerName;
+    onSetViewedBeer('default')
+    onDeleteKeg(beerToDelete);
+    handleClose();
   }
 
   return (
@@ -54,7 +60,6 @@ const CrudWindow = ({kegs, viewedBeer}) => {
           <Button variant='outlined'>Edit</Button>
           <Button variant='contained' onClick={() => handleClickOpen()}>Delete</Button>
         </CardActions>
-        {/* confirm delete dialouge */}
         <Dialog
         open={open}
         onClose={handleClose}
@@ -71,7 +76,7 @@ const CrudWindow = ({kegs, viewedBeer}) => {
           <Button onClick={()=>handleClose()} color="primary">
             Disagree
           </Button>
-          <Button onClick={()=>handleClose()} color="primary" autoFocus>
+          <Button onClick={()=>handleOnDeleteKeg(selectedBeer().name)} color="primary" autoFocus>
             Agree
           </Button>
         </DialogActions>

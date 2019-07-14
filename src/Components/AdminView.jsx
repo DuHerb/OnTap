@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onHandleRefillKeg}) {
+export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onRefillKeg, onDeleteKeg}) {
   const classes = useStyles();
   const [viewedBeer, setViewedBeer] = useState('default')
   const handleSetViewedBeer = (beerName) => {
@@ -28,10 +28,10 @@ export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onHandleR
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12} sm={5}>
-          <TapManager kegsOnTap = {kegsOnTap} kegs={kegs} onToggleTapStatus={onToggleTapStatus} onHandleRefillKeg={onHandleRefillKeg} onSetViewedBeer={handleSetViewedBeer}/>
+          <TapManager kegsOnTap = {kegsOnTap} kegs={kegs} onToggleTapStatus={onToggleTapStatus} onRefillKeg={onRefillKeg} onSetViewedBeer={handleSetViewedBeer}/>
       </Grid>
       <Grid item xs={12} sm={6}>
-          <TapEditor kegsOnTap = {kegsOnTap} kegs={kegs} viewedBeer={viewedBeer}/>
+          <TapEditor kegsOnTap = {kegsOnTap} kegs={kegs} viewedBeer={viewedBeer} onDeleteKeg={onDeleteKeg} onSetViewedBeer={handleSetViewedBeer}/>
       </Grid>
     </Grid>
   )
