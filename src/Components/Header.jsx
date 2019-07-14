@@ -54,7 +54,7 @@ export default function Header(props) {
   return (
     <div className={classes.root} >
       <AppBar position="static" color="default" style={inlineHeader}>
-        <Toolbar>
+        <Toolbar style={{justifyContent: 'space-between'}}>
           <IconButton edge="start" className={classes.menuButton} style={beige} aria-label="Menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
             <MenuIcon />
           </IconButton>
@@ -69,7 +69,7 @@ export default function Header(props) {
         <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/pos">POSView</Link></MenuItem>
         <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/admin">AdminView</Link></MenuItem>
       </Menu>
-      <div style={{display: 'flex', alignItems: 'center'}}>
+      <div style={{display: 'flex', alignItems: 'center', marginRight: '5%'}}>
         <Typography style={{fontFamily: "'Roboto Condensed', sans-serif", fontWeight: 'bolder'}}>What's On Tap@</Typography>
         <img className={classes.logo} src={logo} alt='Deschutes Brewery'></img>
       </div>
