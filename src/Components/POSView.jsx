@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Grid } from '@material-ui/core'
 import PVCard from './PVCard'
@@ -12,7 +12,8 @@ const useStyles = makeStyles(theme => ({
 export default function POSView({kegs, onSellPint}) {
   const classes = useStyles();
 
-    const [view] = useState('pos');
+    // const [view] = useState('pos');
+    const view = 'pos';
   return (
     <Grid container>
     <Grid item xs={12} sm={8} className={classes.centered}>

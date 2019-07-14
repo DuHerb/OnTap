@@ -7,7 +7,8 @@ export const kegs = [
       pintsLeft: 124,
       price: '6',
       description: 'Cool, Light Bodied Summer Ale.',
-      onTap: true
+      onTap: true,
+      imageKey: 'default'
     },
     {
       name: 'Mirror Pond',
@@ -17,7 +18,8 @@ export const kegs = [
       pintsLeft: 124,
       price: '5',
       description: 'Classic, Style Defining Pale Ale',
-      onTap: true
+      onTap: true,
+      imageKey: 'mirrorpond'
     },
     {
       name: 'Fresh Squeezed',
@@ -27,7 +29,8 @@ export const kegs = [
       pintsLeft: 124,
       price: '6.5',
       description: 'Citra and Mosiac Hops',
-      onTap: true
+      onTap: true,
+      imageKey: 'freshsqueezed'
     },
     {
       name: 'Fresh Haze',
@@ -37,7 +40,8 @@ export const kegs = [
       pintsLeft: 124,
       price: '6.5',
       description: 'Citra and Mosiac Hops, but Hazy',
-      onTap: false
+      onTap: false,
+      imageKey: 'freshhaze'
     },
     {
       name: 'Black Butte Porter',
@@ -47,7 +51,8 @@ export const kegs = [
       pintsLeft: 124,
       price: '5.5',
       description: 'Chocolate and Coffee Notes',
-      onTap: false
+      onTap: false,
+      imageKey: 'blackbutteporter'
     }
   ]
 

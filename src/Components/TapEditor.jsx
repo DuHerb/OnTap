@@ -1,10 +1,21 @@
 import React from 'react'
+import CreateKeg from './CreateKeg';
+import { makeStyles } from '@material-ui/styles';
+import CrudWindow from './CrudWindow';
 
-const TapEditor = () => {
+const useStyles = makeStyles({
+  header: {
+    textAlign: 'center'
+  }
+})
+const TapEditor = ({viewedBeer, kegs}) => {
+  const classes = useStyles();
   return (
-    <div>
-      tap editor
-    </div>
+    <>
+      <h2 className={classes.header}>Keg Manager</h2>
+      <CreateKeg/>
+      <CrudWindow kegs={kegs} viewedBeer={viewedBeer}/>
+    </>
   )
 }
 

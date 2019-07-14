@@ -15,12 +15,14 @@ import PVCprice from './PVCprice';
 import PVCabv from './PVCabv';
 import PVCpints from './PVCpints';
 import { Paper, Button } from '@material-ui/core'
-import Twilight from '../Assets/twilight.png'
+// import Twilight from '../Assets/twilight.png'
 
 
 const useStyles = makeStyles(theme => ({
   card: {
-    margin: '5px auto'
+    margin: '5px auto',
+    width: '100%',
+    zIndex: '100'
   },
   media: {
     height: 0,
@@ -47,11 +49,24 @@ const useStyles = makeStyles(theme => ({
   noPadding: {
     padding: '0'
   },
-  headerBG: {
-    backgroundImage: 'url("../../public/Assets/twilight.png")'
-  },
   title: {
-    maxWidth: '35%'
+    maxWidth: '30%'
+  },
+  cardRow: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  actionBox: {
+    height: '105px',
+    alignContent: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    borderRadius: '20px',
+    width: '90px',
+    zIndex: '1',
+    marginLeft: '-61px',
+    padding: '10px 0px 10px 10px',
+    boxShadow: '1px 3px 10px -2px black'
   }
 }));
 
@@ -59,61 +74,71 @@ const inlineStyle = {
   padding: 0
 }
 
+const expandButton ={
+  padding: '8px'
+}
+
 function PVCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const imageURL = '../Assets/twilight.png';
-  const bgImage = {
-    backgroundImage: `url(${Twilight})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    // backgroundSize: '50%',
-    // opacity: '.8'
-  }
 
   function handleExpandClick() {
     setExpanded(!expanded);
   }
 
   return (
-    <Card className={classes.card} raised={true}>
+    <div className={classes.cardRow}>
+      <Card className={classes.card} raised={true}>
 
-    <CardHeader
-      // style={bgImage}
-      title={<Typography className={classes.title}>{props.name}</Typography>}
-      subheader={props.brewery}
-      action = { (props.view === 'patron') ? <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="Show more"
-        >
+        <CardHeader
+          style={props.bg}
+          title={<Typography className={classes.title}>{props.name}</Typography>}
+          subheader={props.brewery}
+          action = { (props.view === 'patron') ? <CardActions disableSpacing>
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded,
+              })}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="Show more"
+            >
 
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions> :
-      <CardActions>
-        <Button variant="outlined" onClick={()=>props.onSellPint(props.name)}>Sell Pint</Button>
-      </CardActions>}
-    />
-    <Collapse in={expanded} timeout="auto" unmountOnExit>
-      <CardContent>
-        <Typography paragraph>
-          {props.description}
-        </Typography>
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions> :
+        <CardActions>
+          <Button variant="outlined" onClick={()=>props.onSellPint(props.name)}>Sell Pint</Button>
+        </CardActions>}
+      />
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>
+            {props.description}
+          </Typography>
+        </CardContent>
+      </Collapse>
+      <CardContent className={classes.noPadding} style={inlineStyle}>
+        <Paper className={classes.colorBoxContainer} square={true}>
+          <PVCprice price={props.price}/>
+          <PVCabv abv={props.abv}/>
+          <PVCpints pintsLeft={props.pintsLeft}/>
+        </Paper>
       </CardContent>
-    </Collapse>
-    <CardContent className={classes.noPadding} style={inlineStyle}>
-      <Paper className={classes.colorBoxContainer} square={true}>
-        <PVCprice price={props.price}/>
-        <PVCabv abv={props.abv}/>
-        <PVCpints pintsLeft={props.pintsLeft}/>
-      </Paper>
-    </CardContent>
-  </Card>
+    </Card>
+    <div className={classes.actionBox}>
+      <IconButton
+      style={expandButton}
+      className={clsx(classes.expand, {
+        [classes.expandOpen]: expanded,
+      })}
+      onClick={handleExpandClick}
+      aria-expanded={expanded}
+      aria-label="Show more"
+    ><ExpandMoreIcon /></IconButton>
+
+    </div>
+  </div>
   )
 }
 
