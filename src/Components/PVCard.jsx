@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     padding: '0'
   },
   title: {
-    maxWidth: '30%'
+    maxWidth: '20%',
   },
   cardRow: {
     display: 'flex',
@@ -94,19 +94,7 @@ function PVCard(props) {
           style={props.bg}
           title={<Typography className={classes.title}>{props.name}</Typography>}
           subheader={props.brewery}
-          action = { (props.view === 'patron') ? <CardActions disableSpacing>
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-              })}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="Show more"
-            >
-
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions> :
+          action = { (props.view === 'pos') &&
         <CardActions>
           <Button variant="outlined" onClick={()=>props.onSellPint(props.name)}>Sell Pint</Button>
         </CardActions>}

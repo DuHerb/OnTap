@@ -26,8 +26,9 @@ console.log(kegs);
             let imgsrc = bgImages(`./${keg.imageKey}.png`);
             let bgStyle = {
               backgroundImage: `url(${imgsrc})`,
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat'
+              backgroundPosition: '125px center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover'
             }
 
             return <PVCard name={keg.name}
