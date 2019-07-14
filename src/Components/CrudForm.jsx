@@ -2,18 +2,16 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import TextField from '@material-ui/core/TextField';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -31,6 +29,26 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen}) => {
   const classes = useStyles();
+
+  //form functions
+  const [values, setValues] = React.useState({
+    name: '',
+    brewery: 'Deschutes',
+    style: '',
+    abv: '',
+    pintsLeft: 124,
+    price: '',
+    description: '',
+    onTap: false,
+    imageKey: 'default'
+  });
+
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+    console.log(values[name]);
+    
+  };
+  
   // const [open, setOpen] = React.useState(false);
 
   // function handleClickOpen() {
@@ -56,22 +74,86 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen}) => {
               {editMode === 'create' ? 'Create New Keg' : 'Update Keg'}
             </Typography>
             <Button color="inherit" onClick={onCloseForm}>
-              save
+              Submit
             </Button>
           </Toolbar>
         </AppBar>
-        <List>
-          <ListItem button>
-            <ListItemText primary="Phone ringtone" secondary="Titania" />
-          </ListItem>
-          <Divider />
-          <ListItem button>
-            <ListItemText primary="Default notification ringtone" secondary="Tethys" />
-          </ListItem>
-        </List>
+        <DialogContent>
+          <DialogContentText>
+            Fill out form and press submit to add a new keg to stock
+          </DialogContentText>
+          <form>
+            <TextField
+              id="nameInput"
+              label="Beer Name"
+              placeholder="Beer Name"
+              className={classes.textField}
+              margin="normal"
+              required
+              value={values.name}
+              onChange={handleChange('name')}
+            /><br/>
+            <TextField
+              id="breweryInput"
+              label="Brewery"
+              placeholder='Deschutes'
+              helperText="Only change if keg is a guest tap"
+              className={classes.textField}
+              margin="normal"
+              value={values.brewery}
+              onChange={handleChange('brewery')}
+            /><br/>
+            <TextField
+              id="styleInput"
+              label="Beer Style"
+              placeholder="Ale"
+              className={classes.textField}
+              margin="normal"
+              required
+              value={values.style}
+              onChange={handleChange('style')}
+            /><br/>
+            <TextField
+              id="abvInput"
+              label="ABV"
+              placeholder="ABV"
+              className={classes.textField}
+              helperText="Number only - Do not include % symbol"
+              margin="normal"
+              required
+              value={values.abv}
+              onChange={handleChange('abv')}
+            /><br/>
+            <TextField
+              id="priceInput"
+              label="Price"
+              placeholder="Price"
+              className={classes.textField}
+              helperText="Number only - Do not include $ symbol"
+              margin="normal"
+              required
+              value={values.price}
+              onChange={handleChange('price')}
+            /><br/>
+            <TextField
+              id="descInput"
+              multiline
+              label="Description"
+              placeholder="Damn Tasty"
+              helperText="Descriptions will show in beer display drop down "
+              className={classes.textField}
+              margin="normal"
+              required
+              value={values.description}
+              onChange={handleChange('description')}
+            /><br/>
+          </form>
+        </DialogContent>
       </Dialog>
     </>
   )
 }
 
 export default CrudForm
+
+
