@@ -8,7 +8,7 @@ export const kegs = [
       price: '6',
       description: 'Cool, Light Bodied Summer Ale.',
       onTap: true,
-      imageKey: 'twilight'
+      imageKey: 'default'
     },
     {
       name: 'Mirror Pond',

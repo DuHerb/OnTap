@@ -27,7 +27,7 @@ const CreateKeg = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Fab color="grey" aria-label="Add" size='small' className={classes.fab}>
+        <Fab color="inherit" aria-label="Add" size='small' className={classes.fab}>
           <AddIcon />
         </Fab>
       </CardActions>

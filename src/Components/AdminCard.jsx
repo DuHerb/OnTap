@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   }
 })
 
-const AdminCard = ({keg, tapStatus, onToggleTapStatus, onHandleRefillKeg}) => {
+const AdminCard = ({keg, tapStatus, onToggleTapStatus, onHandleRefillKeg, onSetViewedBeer}) => {
   const classes = useStyles();
 
   let getColor = ()=> {
@@ -41,7 +41,7 @@ const AdminCard = ({keg, tapStatus, onToggleTapStatus, onHandleRefillKeg}) => {
 
       {keg.pintsLeft > 120 ? <Button disabled variant='outlined' size='small' style={BG}>{keg.pintsLeft}</Button> : <Button variant='outlined' size='small' style={BG} onClick={()=> onHandleRefillKeg(keg.name)}>Refill</Button>}
 
-      <Button variant='outlined' size='small'>Edit</Button>
+      <Button variant='outlined' size='small' onClick={()=> onSetViewedBeer(keg.name)}>View</Button>
     </CardActions>
   </Card>
   )

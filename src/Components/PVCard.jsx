@@ -57,21 +57,25 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center'
   },
   actionBox: {
-    height: '65px',
+    height: '100px',
     alignContent: 'center',
     display: 'flex',
     justifyContent: 'center',
-    borderRadius: '40px',
+    borderRadius: '20px',
     width: '90px',
     zIndex: '1',
-    marginLeft: '-52px',
-    padding: 10,
+    marginLeft: '-61px',
+    padding: '10px 0px 10px 10px',
     boxShadow: '1px 3px 10px -2px black'
   }
 }));
 
 const inlineStyle = {
   padding: 0
+}
+
+const expandButton ={
+  padding: '8px'
 }
 
 function PVCard(props) {
@@ -124,6 +128,7 @@ function PVCard(props) {
     </Card>
     <div className={classes.actionBox}>
       <IconButton
+      style={expandButton}
       className={clsx(classes.expand, {
         [classes.expandOpen]: expanded,
       })}

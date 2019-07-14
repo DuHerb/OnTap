@@ -6,7 +6,6 @@ import POSView from './Components/POSView';
 import AdminView from './Components/AdminView';
 import { Route, HashRouter } from 'react-router-dom';
 import { kegs } from './store.js';
-import Button from '@material-ui/core/Button'
 
 export default class App extends React.Component {
   state = {
