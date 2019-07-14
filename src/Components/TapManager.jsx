@@ -14,8 +14,7 @@ const useStyles = makeStyles({
 
 const TapManager = ({kegsOnTap, kegs, onToggleTapStatus, onHandleRefillKeg}) => {
   const classes = useStyles();
-  // const onTap = true;
-  // const notOnTap = false
+
   return (
     <>
         <h2  className={classes.header}>Beers On Tap</h2>

@@ -50,7 +50,6 @@ export default class App extends React.Component {
             <Route exact path='/' render={()=><PatronView kegs={this.getKegsOnTap()}/>} />
             <Route path='/pos' render={()=><POSView kegs={this.getKegsOnTap()} onSellPint={this.handleSellPint}/>} />
             <Route path='/admin' render={()=><AdminView kegsOnTap={this.getKegsOnTap()} kegs={this.state.kegs} onToggleTapStatus={this.handleToggleTapStatus} onHandleRefillKeg={this.handleRefillKeg}/>} />
-            <Button onClick={()=>{this.handleRefillKeg('Twilight')}}>Refill Test</Button>
         </HashRouter>
     )
   }
