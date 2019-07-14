@@ -28,7 +28,8 @@ console.log(kegs);
               backgroundImage: `url(${imgsrc})`,
               backgroundPosition: '125px center',
               backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover'
+              backgroundSize: 'cover',
+              height: 110
             }
 
             return <PVCard name={keg.name}

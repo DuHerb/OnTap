@@ -53,8 +53,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '20%',
   },
   cardRow: {
-    display: 'flex',
-    alignItems: 'center'
+    display: 'flex'
   },
   actionBox: {
     height: '105px',
@@ -66,7 +65,8 @@ const useStyles = makeStyles(theme => ({
     zIndex: '1',
     marginLeft: '-61px',
     padding: '10px 0px 10px 10px',
-    boxShadow: '1px 3px 10px -2px black'
+    boxShadow: '1px 3px 10px -2px black',
+    marginTop: 14
   }
 }));
 
@@ -101,11 +101,10 @@ function PVCard(props) {
       />
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>
+          <Typography variant='h5'>
             {props.description}
           </Typography>
         </CardContent>
-      </Collapse>
       <CardContent className={classes.noPadding} style={inlineStyle}>
         <Paper className={classes.colorBoxContainer} square={true}>
           <PVCprice price={props.price}/>
@@ -113,6 +112,7 @@ function PVCard(props) {
           <PVCpints pintsLeft={props.pintsLeft}/>
         </Paper>
       </CardContent>
+      </Collapse>
     </Card>
     <div className={classes.actionBox}>
       <IconButton
