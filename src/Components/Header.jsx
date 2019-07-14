@@ -70,8 +70,8 @@ export default function Header(props) {
         <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/admin">AdminView</Link></MenuItem>
       </Menu>
       <div style={{display: 'flex', alignItems: 'center'}}>
+        <Typography style={{fontFamily: "'Roboto Condensed', sans-serif", fontWeight: 'bolder'}}>What's On Tap@</Typography>
         <img className={classes.logo} src={logo} alt='Deschutes Brewery'></img>
-        <Typography style={{fontFamily: "'Roboto Condensed', sans-serif", fontWeight: 'bolder'}}>What's On Tap</Typography>
       </div>
           {/* <Typography variant="h6" className={classes.title}>
             On Tap
