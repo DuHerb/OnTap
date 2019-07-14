@@ -8,13 +8,13 @@ const useStyles = makeStyles({
     textAlign: 'center'
   }
 })
-const TapEditor = ({viewedBeer}) => {
+const TapEditor = ({viewedBeer, kegs}) => {
   const classes = useStyles();
   return (
     <>
       <h2 className={classes.header}>Keg Manager</h2>
       <CreateKeg/>
-      <CrudWindow/>
+      <CrudWindow kegs={kegs} viewedBeer={viewedBeer}/>
     </>
   )
 }

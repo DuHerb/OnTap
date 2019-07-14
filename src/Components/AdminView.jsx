@@ -28,9 +28,7 @@ export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onHandleR
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12} sm={5}>
-        
           <TapManager kegsOnTap = {kegsOnTap} kegs={kegs} onToggleTapStatus={onToggleTapStatus} onHandleRefillKeg={onHandleRefillKeg} onSetViewedBeer={handleSetViewedBeer}/>
-    
       </Grid>
       <Grid item xs={12} sm={6}>
           <TapEditor kegsOnTap = {kegsOnTap} kegs={kegs} viewedBeer={viewedBeer}/>

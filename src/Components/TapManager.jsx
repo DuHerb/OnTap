@@ -8,7 +8,6 @@ const useStyles = makeStyles({
   },
   header: {
     textAlign: 'center',
-    padding: 5
   }
 })
 

@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center'
   },
   actionBox: {
-    height: '100px',
+    height: '105px',
     alignContent: 'center',
     display: 'flex',
     justifyContent: 'center',
