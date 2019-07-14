@@ -6,7 +6,7 @@ import POSView from './Components/POSView';
 import AdminView from './Components/AdminView';
 import { Route, HashRouter } from 'react-router-dom';
 import { kegs } from './store.js';
-
+import Button from '@material-ui/core/Button';
 export default class App extends React.Component {
   state = {
     kegs,
@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   getBeerIndex = (beerName) => kegs.findIndex((beer)=> beer.name === beerName)
 
-  //Handler Function
+  //Handler Functions
   handleSellPint = (beerName) => {
     let selectedBeerIndex = this.getBeerIndex(beerName);
     let updatedKegs = [...kegs];
@@ -42,6 +42,14 @@ export default class App extends React.Component {
     this.setState({kegs: updatedKegs});
   }
 
+  //Crud Actions
+  handleDeleteKeg = (beerName) => {
+    let selectedBeerIndex = this.getBeerIndex(beerName);
+    let updatedKegs = [...kegs];
+    updatedKegs.splice(selectedBeerIndex, 1);
+    this.setState({kegs: updatedKegs});
+  }
+
   render() {
     return (
         <HashRouter>
@@ -49,6 +57,7 @@ export default class App extends React.Component {
             <Route exact path='/' render={()=><PatronView kegs={this.getKegsOnTap()}/>} />
             <Route path='/pos' render={()=><POSView kegs={this.getKegsOnTap()} onSellPint={this.handleSellPint}/>} />
             <Route path='/admin' render={()=><AdminView kegsOnTap={this.getKegsOnTap()} kegs={this.state.kegs} onToggleTapStatus={this.handleToggleTapStatus} onHandleRefillKeg={this.handleRefillKeg}/>} />
+            <Button variant='outlined' onClick={()=>this.handleDeleteKeg('Mirror Pond')}>Test Delete Keg</Button>
         </HashRouter>
     )
   }

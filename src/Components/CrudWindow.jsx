@@ -3,7 +3,12 @@ import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles({
   root: {
@@ -25,6 +30,17 @@ const CrudWindow = ({kegs, viewedBeer}) => {
     return kegs[getBeerIndex(viewedBeer)]
   }
 
+  //delete functions
+  const [open, setOpen] = React.useState(false);
+
+  function handleClickOpen() {
+    setOpen(true);
+  }
+
+  function handleClose() {
+    setOpen(false);
+  }
+
   return (
     <Card className={classes.root}>
       {viewedBeer !== 'default' &&
@@ -36,8 +52,30 @@ const CrudWindow = ({kegs, viewedBeer}) => {
         <Typography className={classes.cardContent} variant='h6'>Price: ${selectedBeer().price}</Typography>
         <CardActions className={classes.cardActions}>
           <Button variant='outlined'>Edit</Button>
-          <Button variant='contained'>Delete</Button>
+          <Button variant='contained' onClick={() => handleClickOpen()}>Delete</Button>
         </CardActions>
+        {/* confirm delete dialouge */}
+        <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Delete this keg?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Deleting this keg will remove it from stock of <em>ALL</em> locations.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={()=>handleClose()} color="primary">
+            Disagree
+          </Button>
+          <Button onClick={()=>handleClose()} color="primary" autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
       </>
       }
     </Card>
