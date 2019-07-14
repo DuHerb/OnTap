@@ -6,6 +6,7 @@ import AddIcon from '@material-ui/icons/Add';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import CrudForm from './CrudForm';
 
 const useStyles = makeStyles({
   card: {
@@ -16,8 +17,13 @@ const useStyles = makeStyles({
     margin: '0 auto'
   }
 })
-const CreateKeg = () => {
+const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm}) => {
   const classes = useStyles();
+
+  const handleCreateNewKeg = ()=> {
+    onSetEditMode('create');
+    onClickOpenForm();
+  }
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -26,9 +32,10 @@ const CreateKeg = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Fab color="inherit" aria-label="Add" size='small' className={classes.fab}>
+        <Fab color="inherit" aria-label="Add" size='small' className={classes.fab} onClick={handleCreateNewKeg}>
           <AddIcon />
         </Fab>
+          <CrudForm editMode={editMode} onSetEditMode={onSetEditMode} onCloseForm={onCloseForm} formOpen={formOpen}/>
       </CardActions>
     </Card>
 

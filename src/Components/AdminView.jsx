@@ -2,9 +2,7 @@ import React, { useState} from 'react'
 import TapManager from './TapManager';
 import TapEditor from './TapEditor';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/styles';
-import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,7 +21,6 @@ export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onRefillK
   const handleSetViewedBeer = (beerName) => {
     setViewedBeer(beerName)
   }
-  console.log(viewedBeer);
 
   return (
     <Grid container className={classes.root}>
