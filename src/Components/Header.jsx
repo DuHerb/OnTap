@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from 'react-router-dom';
+import logo from '../../src/images/deschuteslogo.png'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,8 +23,21 @@ const useStyles = makeStyles(theme => ({
   navLink: {
     textDecoration: "none",
     color: 'black'
+  },
+  logo: {
+    width: 150
   }
 }));
+
+const inlineHeader = {
+  backgroundColor: 'rgb(17, 13, 1)',
+  fontFamily: "'Roboto Condensed', sans-serif",
+  color: 'rgb(230, 225, 206)'
+}
+
+const beige ={
+  color: '#e6e1ce'
+}
 
 export default function Header(props) {
   const classes = useStyles();
@@ -38,10 +52,10 @@ export default function Header(props) {
   }
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
+    <div className={classes.root} >
+      <AppBar position="static" color="default" style={inlineHeader}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+          <IconButton edge="start" className={classes.menuButton} style={beige} aria-label="Menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
             <MenuIcon />
           </IconButton>
           <Menu
@@ -55,9 +69,13 @@ export default function Header(props) {
         <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/pos">POSView</Link></MenuItem>
         <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/admin">AdminView</Link></MenuItem>
       </Menu>
-          <Typography variant="h6" className={classes.title}>
+      <div style={{display: 'flex', alignItems: 'center'}}>
+        <img className={classes.logo} src={logo} alt='Deschutes Brewery'></img>
+        <Typography style={{fontFamily: "'Roboto Condensed', sans-serif", fontWeight: 'bolder'}}>What's On Tap</Typography>
+      </div>
+          {/* <Typography variant="h6" className={classes.title}>
             On Tap
-          </Typography>
+          </Typography> */}
         </Toolbar>
       </AppBar>
     </div>

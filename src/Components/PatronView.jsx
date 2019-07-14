@@ -29,7 +29,8 @@ console.log(kegs);
               backgroundPosition: '125px center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
-              height: 110
+              height: 110,
+              backgroundColor: 'rgb(230, 225, 206)'
             }
 
             return <PVCard name={keg.name}

@@ -66,7 +66,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: '-61px',
     padding: '10px 0px 10px 10px',
     boxShadow: '1px 3px 10px -2px black',
-    marginTop: 14
+    marginTop: 14,
+    backgroundColor: 'rgb(230, 225, 206)'
   }
 }));
 
@@ -76,6 +77,11 @@ const inlineStyle = {
 
 const expandButton ={
   padding: '8px'
+}
+
+const cardDesc = {
+  backgroundColor: 'rgb(17, 13, 1)',
+  color: '#e6e1ce'
 }
 
 function PVCard(props) {
@@ -92,15 +98,15 @@ function PVCard(props) {
 
         <CardHeader
           style={props.bg}
-          title={<Typography className={classes.title}>{props.name}</Typography>}
-          subheader={props.brewery}
+          title={<Typography variant='h6' className={classes.title}>{props.name}</Typography>}
+          subheader={props.style}
           action = { (props.view === 'pos') &&
         <CardActions>
           <Button variant="outlined" onClick={()=>props.onSellPint(props.name)}>Sell Pint</Button>
         </CardActions>}
       />
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+        <CardContent style={cardDesc}>
           <Typography variant='h5'>
             {props.description}
           </Typography>
