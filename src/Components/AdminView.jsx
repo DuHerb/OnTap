@@ -9,7 +9,8 @@ import Button from '@material-ui/core/Button'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    flexWrap: 'wrap'
   },
   paper: {
     width: '100%',
@@ -25,17 +26,14 @@ export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onHandleR
   console.log(viewedBeer);
 
   return (
-    <Grid container spacing={1} className={classes.root}>
-      <Grid item xs={12} sm={6}>
-        <Paper className={classes.paper}>
+    <Grid container className={classes.root}>
+      <Grid item xs={12} sm={5}>
+        
           <TapManager kegsOnTap = {kegsOnTap} kegs={kegs} onToggleTapStatus={onToggleTapStatus} onHandleRefillKeg={onHandleRefillKeg} onSetViewedBeer={handleSetViewedBeer}/>
-        </Paper>
-        <Button variant='contained' onClick={()=> setViewedBeer('twilight')}>Test Set View</Button>
+    
       </Grid>
       <Grid item xs={12} sm={6}>
-        <Paper className={classes.paper}>
           <TapEditor kegsOnTap = {kegsOnTap} kegs={kegs} viewedBeer={viewedBeer}/>
-        </Paper>
       </Grid>
     </Grid>
   )

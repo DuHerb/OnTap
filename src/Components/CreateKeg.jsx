@@ -13,8 +13,7 @@ const useStyles = makeStyles({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0 auto',
-    width: '50%'
+    margin: '0 auto'
   }
 })
 const CreateKeg = () => {
