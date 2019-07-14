@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
 export default function PatronView({kegs}) {
   const classes = useStyles();
   const bgImages = require.context('../../public/Assets', true)
+console.log(kegs);
 
   // eslint-disable-next-line no-unused-vars
   // const [view, setView] = useState('patron');
@@ -22,7 +23,7 @@ export default function PatronView({kegs}) {
       <Grid container>
         <Grid item xs={12} sm={8} className={classes.centered}>
           {kegs.map((keg) => {
-            let imgsrc = bgImages('./twilight.png');
+            let imgsrc = bgImages(`./${keg.imageKey}.png`);
             let bgStyle = {
               backgroundImage: `url(${imgsrc})`,
               backgroundPosition: 'center',
