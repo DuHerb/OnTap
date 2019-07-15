@@ -21,37 +21,41 @@ export default class App extends React.Component {
 
   //Handler Functions
   handleSellPint = (uid) => {
-    let selectedBeerIndex = this.getBeerIndex(uid);
+    // let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
-    updatedKegs[selectedBeerIndex].pintsLeft = updatedKegs[selectedBeerIndex].pintsLeft - 1;
+    updatedKegs[this.getBeerIndex(uid)].pintsLeft = updatedKegs[this.getBeerIndex(uid)].pintsLeft - 1;
     this.setState({kegs: updatedKegs});
   }
 
   handleToggleTapStatus = (uid) => {
-    let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
-    updatedKegs[selectedBeerIndex].onTap = !updatedKegs[selectedBeerIndex].onTap;
+    updatedKegs[this.getBeerIndex(uid)].onTap = !updatedKegs[this.getBeerIndex(uid)].onTap;
     this.setState({kegs: updatedKegs});
   }
 
   handleRefillKeg = (uid) => {
-    let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
-    updatedKegs[selectedBeerIndex].pintsLeft = 124;
+    updatedKegs[this.getBeerIndex(uid)].pintsLeft = 124;
     this.setState({kegs: updatedKegs});
   }
 
-  //Crud Actions
+  //CRUD Actions
   handleDeleteKeg = (uid) => {
-    let selectedBeerIndex = this.getBeerIndex(uid);
+    // let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
-    updatedKegs.splice(selectedBeerIndex, 1);
+    updatedKegs.splice(this.getBeerIndex(uid), 1);
     this.setState({kegs: updatedKegs});
   }
 
   handleCreateKeg = (values) => {
     let updatedKegs = [...this.state.kegs, values];
     this.setState({kegs: updatedKegs});
+  }
+
+  handleUpdateKeg = (values ) => {
+    let updatedKegs = [...this.state.kegs]
+    updatedKegs[this.getBeerIndex(values.uid)] = values;
+    this.setState({kegs: updatedKegs})
   }
 
   render() {
@@ -79,7 +83,7 @@ export default class App extends React.Component {
               onCreateKeg={this.handleCreateKeg}
             />}
           />
-          {/* <Button variant='outlined' onClick={()=>this.handleCreateKeg({name: 'test keg', brewery: 'test brewery'})}>Test Create Keg</Button> */}
+          {/* <Button variant='outlined' onClick={()=>this.handleUpdateKeg({brewery: 'test brewery', uid: '1', onTap: true, imageKey: 'twilight'})}>Test update Keg</Button> */}
         </HashRouter>
     )
   }
