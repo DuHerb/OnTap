@@ -9,7 +9,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import CrudForm from './CrudForm';
 
 const useStyles = makeStyles({
   root: {
@@ -53,21 +52,17 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer
     onClickOpenForm();
   }
 
-  const showSelectedBeer = () => {
-    console.log(viewedBeer);
-  }
-
   return (
     <Card className={classes.root}>
       {viewedBeer !== 'default' &&
       <>
         <Typography className={classes.cardContent} variant='h4'>Name: {selectedBeer().name}</Typography>
         <Typography className={classes.cardContent} variant='h6'>Brewery: {selectedBeer().brewery}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Style: {selectedBeer().style}</Typography>
         <Typography className={classes.cardContent} variant='h6'>Description: {selectedBeer().description}</Typography>
         <Typography className={classes.cardContent} variant='h6'>ABV: {selectedBeer().abv}%</Typography>
         <Typography className={classes.cardContent} variant='h6'>Price: ${selectedBeer().price}</Typography>
         <CardActions className={classes.cardActions}>
-          <Button onClick={()=> showSelectedBeer()}>Test button</Button>
           <Button variant='outlined' onClick={()=> handleOpenEditKeg()}>Edit</Button>
           <Button variant='contained' onClick={() => handleDialogeOpen()}>Delete</Button>
         </CardActions>

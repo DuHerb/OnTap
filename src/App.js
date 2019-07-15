@@ -80,6 +80,7 @@ export default class App extends React.Component {
               onRefillKeg={this.handleRefillKeg}
               onDeleteKeg={this.handleDeleteKeg}
               onCreateKeg={this.handleCreateKeg}
+              onUpdateKeg={this.handleUpdateKeg}
             />}
           />
           {/* <Button variant='outlined' onClick={()=>this.handleUpdateKeg({brewery: 'test brewery', uid: '1', onTap: true, imageKey: 'twilight'})}>Test update Keg</Button> */}

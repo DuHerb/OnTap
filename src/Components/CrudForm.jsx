@@ -27,11 +27,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, onSetViewedBeer, keg}) => {
+const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, onSetViewedBeer, keg, onUpdateKeg}) => {
   const classes = useStyles();
-
-  //form functions
-  const [values, setValues] = React.useState({
+  const defaultValues = {
     name: '',
     brewery: 'Deschutes',
     style: '',
@@ -42,7 +40,10 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
     onTap: false,
     imageKey: 'default',
     uid: v4()
-  });
+  }
+
+  //form functions
+  const [values, setValues] = React.useState(defaultValues);
 
   React.useEffect(()=> {
     if(editMode === 'edit')
@@ -53,15 +54,20 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const onSubmitForm = () => {
+  const onSubmitCreateForm = () => {
     onCreateKeg(values);
     onSetViewedBeer(values.uid)
     onCloseForm();
+    onSetEditMode('');
+    setValues(defaultValues);
   }
 
-  const testFunc =()=>{
-    console.log(keg);
-    console.log(editMode);
+  const onSubmitUpdateForm = () => {
+    onUpdateKeg(values);
+    onSetViewedBeer(values.uid);
+    onCloseForm();
+    onSetEditMode('');
+    setValues(defaultValues);
   }
   // const [open, setOpen] = React.useState(false);
 
@@ -87,10 +93,10 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
             <Typography variant="h6" className={classes.title}>
               {editMode === 'create' ? 'Create New Keg' : 'Update Keg'}
             </Typography>
-            <Button onClick={testFunc}>Test Keg</Button>
-            <Button color="inherit" onClick={onSubmitForm}>
-              Submit
-            </Button>
+            {editMode === 'create' ?
+              <Button color="inherit" onClick={onSubmitCreateForm}>Submit</Button> :
+              <Button color="inherit" onClick={onSubmitUpdateForm}>Update</Button>
+            }
           </Toolbar>
         </AppBar>
         <DialogContent>

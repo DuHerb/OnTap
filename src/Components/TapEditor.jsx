@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     textAlign: 'center'
   }
 })
-const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg}) => {
+const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg, onUpdateKeg}) => {
 
   //edit mode
   const [editMode, setEditMode] = React.useState('view')
@@ -61,6 +61,7 @@ const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg}
         formOpen={formOpen}
         onCreateKeg={onCreateKeg}
         onSetViewedBeer={onSetViewedBeer}
+        onUpdateKeg={onUpdateKeg}
       />
     </>
   )
