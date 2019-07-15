@@ -43,6 +43,11 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
     imageKey: 'default'
   });
 
+  React.useEffect(()=> {
+    if(editMode === 'edit')
+      setValues(keg)
+  }, [editMode, keg])
+
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
@@ -56,8 +61,6 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
   const testFunc =()=>{
     console.log(keg);
     console.log(editMode);
-    
-
   }
   // const [open, setOpen] = React.useState(false);
 
