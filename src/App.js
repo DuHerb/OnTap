@@ -32,7 +32,6 @@ export default class App extends React.Component {
     let updatedKegs = [...this.state.kegs];
     updatedKegs[selectedBeerIndex].onTap = !updatedKegs[selectedBeerIndex].onTap;
     this.setState({kegs: updatedKegs});
-    console.log(updatedKegs[selectedBeerIndex].onTap);
   }
 
   handleRefillKeg = (beerName) => {
