@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     margin: '0 auto'
   }
 })
-const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm, onCreateKeg}) => {
+const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm, onCreateKeg, onSetViewedBeer}) => {
   const classes = useStyles();
 
   const handleCreateNewKeg = ()=> {
@@ -41,6 +41,7 @@ const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseF
             onCloseForm={onCloseForm}
             formOpen={formOpen}
             onCreateKeg={onCreateKeg}
+            onSetViewedBeer={onSetViewedBeer}
           />
       </CardActions>
     </Card>

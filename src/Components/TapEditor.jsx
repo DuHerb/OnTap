@@ -33,6 +33,7 @@ const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg}
         onClickOpenForm={handleClickOpen}
         onCloseForm={handleClose}
         onCreateKeg={onCreateKeg}
+        onSetViewedBeer={onSetViewedBeer}
       />
       <CrudWindow
         kegs={kegs}

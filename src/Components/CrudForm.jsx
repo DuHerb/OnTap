@@ -27,7 +27,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg}) => {
+const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, onSetViewedBeer}) => {
   const classes = useStyles();
 
   //form functions
@@ -49,6 +49,7 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg})
 
   const onSubmitForm = () => {
     onCreateKeg(values);
+    onSetViewedBeer(values.name)
     onCloseForm();
   }
   // const [open, setOpen] = React.useState(false);
