@@ -22,13 +22,8 @@ const useStyles = makeStyles({
   }
 })
 
-const CrudWindow = ({keg, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer, editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm}) => {
+const CrudWindow = ({keg, viewedBeer, onDeleteKeg, onSetViewedBeer, editMode, onSetEditMode, onClickOpenForm}) => {
   const classes = useStyles();
-
-  // const getBeerIndex = (uid) => kegs.findIndex((beer)=> beer.uid === uid)
-  // const selectedBeer = (uid) => {
-  //   return kegs[getBeerIndex(viewedBeer)]
-  // }
 
   //delete dialogue control
   const [open, setOpen] = React.useState(false);
