@@ -41,7 +41,6 @@ export default class App extends React.Component {
 
   //CRUD Actions
   handleDeleteKeg = (uid) => {
-    // let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
     updatedKegs.splice(this.getBeerIndex(uid), 1);
     this.setState({kegs: updatedKegs});
