@@ -42,7 +42,7 @@ const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg,
         // onSetViewedBeer={onSetViewedBeer}
       />
       <CrudWindow
-        kegs={kegs}
+        keg={selectedBeer()}
         viewedBeer={viewedBeer}
         onDeleteKeg={onDeleteKeg}
         onSetViewedBeer={onSetViewedBeer}

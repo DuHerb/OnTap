@@ -22,13 +22,13 @@ const useStyles = makeStyles({
   }
 })
 
-const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer, editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm}) => {
+const CrudWindow = ({keg, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer, editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm}) => {
   const classes = useStyles();
 
-  const getBeerIndex = (uid) => kegs.findIndex((beer)=> beer.uid === uid)
-  const selectedBeer = (uid) => {
-    return kegs[getBeerIndex(viewedBeer)]
-  }
+  // const getBeerIndex = (uid) => kegs.findIndex((beer)=> beer.uid === uid)
+  // const selectedBeer = (uid) => {
+  //   return kegs[getBeerIndex(viewedBeer)]
+  // }
 
   //delete dialogue control
   const [open, setOpen] = React.useState(false);
@@ -56,12 +56,12 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer
     <Card className={classes.root}>
       {viewedBeer !== 'default' &&
       <>
-        <Typography className={classes.cardContent} variant='h4'>Name: {selectedBeer().name}</Typography>
-        <Typography className={classes.cardContent} variant='h6'>Brewery: {selectedBeer().brewery}</Typography>
-        <Typography className={classes.cardContent} variant='h6'>Style: {selectedBeer().style}</Typography>
-        <Typography className={classes.cardContent} variant='h6'>Description: {selectedBeer().description}</Typography>
-        <Typography className={classes.cardContent} variant='h6'>ABV: {selectedBeer().abv}%</Typography>
-        <Typography className={classes.cardContent} variant='h6'>Price: ${selectedBeer().price}</Typography>
+        <Typography className={classes.cardContent} variant='h4'>Name: {keg.name}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Brewery: {keg.brewery}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Style: {keg.style}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Description: {keg.description}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>ABV: {keg.abv}%</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Price: ${keg.price}</Typography>
         <CardActions className={classes.cardActions}>
           <Button variant='outlined' onClick={()=> handleOpenEditKeg()}>Edit</Button>
           <Button variant='contained' onClick={() => handleDialogeOpen()}>Delete</Button>
@@ -82,7 +82,7 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer
           <Button onClick={()=>handleClose()} color="primary">
             Disagree
           </Button>
-          <Button onClick={()=>handleOnDeleteKeg(selectedBeer().uid)} color="primary" autoFocus>
+          <Button onClick={()=>handleOnDeleteKeg(keg.uid)} color="primary" autoFocus>
             Agree
           </Button>
         </DialogActions>
