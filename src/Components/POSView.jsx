@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
 export default function POSView({kegs, onSellPint}) {
   const classes = useStyles();
 
-    // const [view] = useState('pos');
-    const view = 'pos';
+  const view = 'pos';
+  
   return (
     <Grid container>
     <Grid item xs={12} sm={8} className={classes.centered}>

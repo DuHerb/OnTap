@@ -43,7 +43,7 @@ export const kegs = [
     pintsLeft: 124,
     price: '6.5',
     description: 'Citra and Mosiac Hops, but Hazy',
-    onTap: false,
+    onTap: true,
     imageKey: 'freshhaze',
     uid: '4'
   },
@@ -55,7 +55,7 @@ export const kegs = [
     pintsLeft: 124,
     price: '5.5',
     description: 'Chocolate and Coffee Notes',
-    onTap: false,
+    onTap: true,
     imageKey: 'blackbutteporter',
     uid: '5'
   }

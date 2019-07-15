@@ -73,7 +73,7 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
   return (
     <>
       <Dialog fullScreen open={formOpen} onClose={onCloseForm} TransitionComponent={Transition}>
-        <AppBar className={classes.appBar}>
+        <AppBar className={classes.appBar} style={{background: 'rgb(17, 13, 1)', color: 'rgb(230, 225, 206)'}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={onCloseForm} aria-label="Close">
               <CloseIcon />
@@ -82,7 +82,7 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
               {editMode === 'create' ? 'Create New Keg' : 'Update Keg'}
             </Typography>
             {editMode === 'create' ?
-              <Button color="inherit" onClick={onSubmitCreateForm}>Submit</Button> :
+              <Button color="inherit" variant='outlined' onClick={onSubmitCreateForm}>Submit</Button> :
               <Button color="inherit" onClick={onSubmitUpdateForm}>Update</Button>
             }
           </Toolbar>

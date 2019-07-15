@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 
-
 const useStyles = makeStyles({
   colorBoxItem2: {
     width: '100%',
@@ -14,11 +13,11 @@ const PVCpints = ({pintsLeft}) => {
 
   let getColor = ()=> {
     if(pintsLeft < 115) {
-      return 'red'
+      return '#973737'
     } else if (pintsLeft < 120){
-      return 'yellow'
+      return '#eeb43d'
     } else {
-      return 'green'
+      return '#74ab63'
     }
   }
 
@@ -31,6 +30,7 @@ const PVCpints = ({pintsLeft}) => {
     margin: 0,
     padding: 16,
   }
+  
   return (
     <div className={classes.colorBoxItem2} >
       <div style={BG}>

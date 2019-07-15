@@ -6,7 +6,6 @@ import AddIcon from '@material-ui/icons/Add';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import CrudForm from './CrudForm';
 
 const useStyles = makeStyles({
   card: {
@@ -36,17 +35,7 @@ const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseF
           <AddIcon />
         </Fab>
       </CardActions>
-          {/* <CrudForm
-            editMode={editMode}
-            onSetEditMode={onSetEditMode}
-            onCloseForm={onCloseForm}
-            formOpen={formOpen}
-            onCreateKeg={onCreateKeg}
-            onSetViewedBeer={onSetViewedBeer}
-          /> */}
     </Card>
-
-
   )
 }
 

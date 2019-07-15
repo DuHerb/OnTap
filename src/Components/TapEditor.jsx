@@ -6,7 +6,9 @@ import CrudForm from './CrudForm';
 
 const useStyles = makeStyles({
   header: {
-    textAlign: 'center'
+    textAlign: 'center',
+    backgroundColor: '#979797cc',
+    borderRadius: 5
   }
 })
 const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg, onUpdateKeg}) => {
@@ -33,28 +35,19 @@ const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg,
     <>
       <h2 className={classes.header}>Keg Manager</h2>
       <CreateKeg
-        // editMode={editMode}
         onSetEditMode={setEditMode}
-        // formOpen={formOpen}
         onClickOpenForm={handleClickOpen}
-        // onCloseForm={handleClose}
-        // onCreateKeg={onCreateKeg}
-        // onSetViewedBeer={onSetViewedBeer}
       />
       <CrudWindow
         keg={selectedBeer()}
         viewedBeer={viewedBeer}
         onDeleteKeg={onDeleteKeg}
         onSetViewedBeer={onSetViewedBeer}
-        // editMode={editMode}
         onSetEditMode={setEditMode}
-        // onCreateKeg={onCreateKeg}
-        // formOpen={formOpen}
         onClickOpenForm={handleClickOpen}
       />
       <CrudForm
         keg={selectedBeer()}
-        // viewedBeer={viewedBeer}
         editMode={editMode}
         onSetEditMode={setEditMode}
         onCloseForm={handleClose}

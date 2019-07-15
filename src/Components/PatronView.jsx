@@ -10,13 +10,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 export default function PatronView({kegs}) {
   const classes = useStyles();
   const bgImages = require.context('../../public/Assets', true);
 
   // eslint-disable-next-line no-unused-vars
-  // const [view, setView] = useState('patron');
   const view = 'patron'
   return (
       <Grid container>

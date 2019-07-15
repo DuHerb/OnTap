@@ -77,7 +77,7 @@ const CrudWindow = ({keg, viewedBeer, onDeleteKeg, onSetViewedBeer, editMode, on
           <Button onClick={()=>handleClose()} color="primary">
             Disagree
           </Button>
-          <Button onClick={()=>handleOnDeleteKeg(keg.uid)} color="primary" autoFocus>
+          <Button onClick={()=>handleOnDeleteKeg(keg.uid)} color="black" autoFocus>
             Agree
           </Button>
         </DialogActions>

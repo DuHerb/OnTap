@@ -28,11 +28,11 @@ const AdminCard = ({keg, tapStatus, onToggleTapStatus, onRefillKeg, onSetViewedB
 
   let getColor = ()=> {
     if(keg.pintsLeft < 115) {
-      return 'red'
+      return '#973737'
     } else if (keg.pintsLeft < 120){
-      return 'yellow'
+      return '#eeb43d'
     } else {
-      return 'green'
+      return '#74ab63'
     }
   }
 

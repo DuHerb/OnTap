@@ -8,6 +8,8 @@ const useStyles = makeStyles({
   },
   header: {
     textAlign: 'center',
+    backgroundColor: '#979797cc',
+    borderRadius: 5
   }
 })
 
@@ -16,23 +18,23 @@ const TapManager = ({kegsOnTap, kegs, onToggleTapStatus, onRefillKeg, onSetViewe
 
   return (
     <>
-        <h2  className={classes.header}>Beers On Tap</h2>
-        <TapManagerWindow
-          kegs={kegsOnTap}
-          tapStatus={'onTap'}
-          onToggleTapStatus={onToggleTapStatus}
-          onRefillKeg={onRefillKeg}
-          onSetViewedBeer={onSetViewedBeer}
-          onSellPint={onSellPint}
-        />
-        <h2 className={classes.header}>Stock</h2>
-        <TapManagerWindow
-          kegs={kegs}
-          tapStatus={'notOnTap'}
-          onToggleTapStatus={onToggleTapStatus}
-          onRefillKeg={onRefillKeg}
-          onSetViewedBeer={onSetViewedBeer}
-        />
+      <h2  className={classes.header}>Beers On Tap</h2>
+      <TapManagerWindow
+        kegs={kegsOnTap}
+        tapStatus={'onTap'}
+        onToggleTapStatus={onToggleTapStatus}
+        onRefillKeg={onRefillKeg}
+        onSetViewedBeer={onSetViewedBeer}
+        onSellPint={onSellPint}
+      />
+      <h2 className={classes.header}>Stock</h2>
+      <TapManagerWindow
+        kegs={kegs}
+        tapStatus={'notOnTap'}
+        onToggleTapStatus={onToggleTapStatus}
+        onRefillKeg={onRefillKeg}
+        onSetViewedBeer={onSetViewedBeer}
+      />
     </>
   )
 }

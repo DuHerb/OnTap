@@ -14,7 +14,6 @@ import PVCprice from './PVCprice';
 import PVCabv from './PVCabv';
 import PVCpints from './PVCpints';
 import { Paper, Button } from '@material-ui/core'
-// import Twilight from '../Assets/twilight.png'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -93,7 +92,6 @@ function PVCard(props) {
   return (
     <div className={classes.cardRow}>
       <Card className={classes.card} raised={true}>
-
         <CardHeader
           style={props.bg}
           title={<Typography variant='h6' className={classes.title}>{props.name}</Typography>}
@@ -120,15 +118,16 @@ function PVCard(props) {
     </Card>
     <div className={classes.actionBox}>
       <IconButton
-      style={expandButton}
-      className={clsx(classes.expand, {
-        [classes.expandOpen]: expanded,
-      })}
-      onClick={handleExpandClick}
-      aria-expanded={expanded}
-      aria-label="Show more"
-    ><ExpandMoreIcon /></IconButton>
-
+        style={expandButton}
+        className={clsx(classes.expand, {
+          [classes.expandOpen]: expanded,
+        })}
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        aria-label="Show more"
+      >
+        <ExpandMoreIcon />
+      </IconButton>
     </div>
   </div>
   )

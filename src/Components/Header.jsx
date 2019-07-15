@@ -59,22 +59,19 @@ export default function Header(props) {
             <MenuIcon />
           </IconButton>
           <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/">PatronView</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/admin">AdminView</Link></MenuItem>
-      </Menu>
-      <div style={{display: 'flex', alignItems: 'center', marginRight: '5%'}}>
-        <Typography style={{fontFamily: "'Roboto Condensed', sans-serif", fontWeight: 'bolder'}}>What's On Tap@</Typography>
-        <img className={classes.logo} src={logo} alt='Deschutes Brewery'></img>
-      </div>
-          {/* <Typography variant="h6" className={classes.title}>
-            On Tap
-          </Typography> */}
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/">PatronView</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/admin">AdminView</Link></MenuItem>
+          </Menu>
+          <div style={{display: 'flex', alignItems: 'center', marginRight: '5%'}}>
+            <Typography style={{fontFamily: "'Roboto Condensed', sans-serif", fontWeight: 'bolder'}}>What's On Tap@</Typography>
+            <img className={classes.logo} src={logo} alt='Deschutes Brewery'></img>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
