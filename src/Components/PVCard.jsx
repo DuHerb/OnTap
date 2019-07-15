@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -16,7 +15,6 @@ import PVCabv from './PVCabv';
 import PVCpints from './PVCpints';
 import { Paper, Button } from '@material-ui/core'
 // import Twilight from '../Assets/twilight.png'
-
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -102,7 +100,7 @@ function PVCard(props) {
           subheader={props.style}
           action = { (props.view === 'pos') &&
         <CardActions>
-          <Button variant="outlined" onClick={()=>props.onSellPint(props.name)}>Sell Pint</Button>
+          <Button variant="outlined" onClick={()=>props.onSellPint(props.uid)}>Sell Pint</Button>
         </CardActions>}
       />
       <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -134,16 +132,6 @@ function PVCard(props) {
     </div>
   </div>
   )
-}
-
-PVCard.propTypes = {
-  name: PropTypes.string,
-  brewery: PropTypes.string,
-  style: PropTypes.string,
-  abv: PropTypes.string,
-  pintsLeft: PropTypes.number,
-  price: PropTypes.string,
-  description: PropTypes.string
 }
 
 export default PVCard

@@ -23,11 +23,10 @@ const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg}
     setOpen(false);
   }
 
-  const getBeerIndex = (beerName) => kegs.findIndex((beer)=> beer.name === beerName)
-  const selectedBeer = (beerName) => {
+  const getBeerIndex = (uid) => kegs.findIndex((beer)=> beer.uid === uid)
+  const selectedBeer = () => {
     return kegs[getBeerIndex(viewedBeer)]
   }
-
 
   const classes = useStyles();
   return (

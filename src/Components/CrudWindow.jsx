@@ -26,8 +26,8 @@ const useStyles = makeStyles({
 const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer, editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm}) => {
   const classes = useStyles();
 
-  const getBeerIndex = (beerName) => kegs.findIndex((beer)=> beer.name === beerName)
-  const selectedBeer = (beerName) => {
+  const getBeerIndex = (uid) => kegs.findIndex((beer)=> beer.uid === uid)
+  const selectedBeer = (uid) => {
     return kegs[getBeerIndex(viewedBeer)]
   }
 
@@ -41,8 +41,8 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer
     setOpen(false);
   }
 
-  const handleOnDeleteKeg = (beerName) => {
-    let beerToDelete = beerName;
+  const handleOnDeleteKeg = (uid) => {
+    let beerToDelete = uid;
     onSetViewedBeer('default')
     onDeleteKeg(beerToDelete);
     handleClose();
@@ -51,6 +51,10 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer
   const handleOpenEditKeg = () => {
     onSetEditMode('edit');
     onClickOpenForm();
+  }
+
+  const showSelectedBeer = () => {
+    console.log(viewedBeer);
   }
 
   return (
@@ -63,6 +67,7 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer
         <Typography className={classes.cardContent} variant='h6'>ABV: {selectedBeer().abv}%</Typography>
         <Typography className={classes.cardContent} variant='h6'>Price: ${selectedBeer().price}</Typography>
         <CardActions className={classes.cardActions}>
+          <Button onClick={()=> showSelectedBeer()}>Test button</Button>
           <Button variant='outlined' onClick={()=> handleOpenEditKeg()}>Edit</Button>
           <Button variant='contained' onClick={() => handleDialogeOpen()}>Delete</Button>
         </CardActions>
@@ -82,21 +87,13 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer
           <Button onClick={()=>handleClose()} color="primary">
             Disagree
           </Button>
-          <Button onClick={()=>handleOnDeleteKeg(selectedBeer().name)} color="primary" autoFocus>
+          <Button onClick={()=>handleOnDeleteKeg(selectedBeer().uid)} color="primary" autoFocus>
             Agree
           </Button>
         </DialogActions>
       </Dialog>
       </>
       }
-      {/* <CrudForm
-        editMode={editMode}
-        onSetEditMode={onSetEditMode}
-        onCloseForm={onCloseForm}
-        formOpen={formOpen}
-        onCreateKeg={onCreateKeg}
-        onSetViewedBeer={onSetViewedBeer}
-      /> */}
     </Card>
   )
 }

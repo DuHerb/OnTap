@@ -28,6 +28,7 @@ export default function POSView({kegs, onSellPint}) {
               key={keg.name}
               view={view}
               onSellPint = {onSellPint}
+              uid={keg.uid}
             />
             )}
     </Grid>

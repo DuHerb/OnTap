@@ -10,7 +10,8 @@ const TapManagerWindow = ({kegs, tapStatus, onToggleTapStatus, onRefillKeg, onSe
           onToggleTapStatus={onToggleTapStatus}
           onRefillKeg={onRefillKeg}
           onSetViewedBeer={onSetViewedBeer}
-          key={keg.name}/>
+          key={keg.name}
+        />
         )}
     </div>
   )

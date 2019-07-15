@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
 export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onRefillKeg, onDeleteKeg, onCreateKeg}) {
   const classes = useStyles();
   const [viewedBeer, setViewedBeer] = useState('default')
-  const handleSetViewedBeer = (beerName) => {
-    setViewedBeer(beerName)
+  const handleSetViewedBeer = (uid) => {
+    setViewedBeer(uid)
   }
 
   return (

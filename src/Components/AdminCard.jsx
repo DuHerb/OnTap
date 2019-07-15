@@ -47,18 +47,18 @@ const AdminCard = ({keg, tapStatus, onToggleTapStatus, onRefillKeg, onSetViewedB
     </CardContent>
     <CardActions className={classes.adminCardAction}>
       { keg.onTap && tapStatus === 'onTap' ?
-        <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.name)}}>UnTap</Button>
+        <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.uid)}}>UnTap</Button>
           :
-        <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.name)}}>Tap</Button>
+        <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.uid)}}>Tap</Button>
       }
 
       {keg.pintsLeft > 120 ?
         <Button disabled variant='outlined' size='small' style={BG}>{keg.pintsLeft}</Button>
           :
-        <Button variant='outlined' size='small' style={BG} onClick={()=> onRefillKeg(keg.name)}>Refill</Button>
+        <Button variant='outlined' size='small' style={BG} onClick={()=> onRefillKeg(keg.uid)}>Refill</Button>
       }
 
-      <Button variant='outlined' size='small' onClick={()=> onSetViewedBeer(keg.name)}>View</Button>
+      <Button variant='outlined' size='small' onClick={()=> onSetViewedBeer(keg.uid)}>View</Button>
     </CardActions>
   </Card>
   )

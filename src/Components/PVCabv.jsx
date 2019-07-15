@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
@@ -21,10 +21,6 @@ const PVCabv = ({abv}) => {
       <p>ABV: {abv}%</p>
     </div>
   )
-}
-
-PVCabv.propTypes = {
-  abv: PropTypes.string
 }
 
 export default PVCabv

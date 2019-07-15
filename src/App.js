@@ -17,33 +17,33 @@ export default class App extends React.Component {
     return this.state.kegs.filter(keg => keg.onTap);
   }
 
-  getBeerIndex = (beerName) => this.state.kegs.findIndex((beer)=> beer.name === beerName)
+  getBeerIndex = (uid) => this.state.kegs.findIndex((beer)=> beer.uid === uid)
 
   //Handler Functions
-  handleSellPint = (beerName) => {
-    let selectedBeerIndex = this.getBeerIndex(beerName);
+  handleSellPint = (uid) => {
+    let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
     updatedKegs[selectedBeerIndex].pintsLeft = updatedKegs[selectedBeerIndex].pintsLeft - 1;
     this.setState({kegs: updatedKegs});
   }
 
-  handleToggleTapStatus = (beerName) => {
-    let selectedBeerIndex = this.getBeerIndex(beerName);
+  handleToggleTapStatus = (uid) => {
+    let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
     updatedKegs[selectedBeerIndex].onTap = !updatedKegs[selectedBeerIndex].onTap;
     this.setState({kegs: updatedKegs});
   }
 
-  handleRefillKeg = (beerName) => {
-    let selectedBeerIndex = this.getBeerIndex(beerName);
+  handleRefillKeg = (uid) => {
+    let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
     updatedKegs[selectedBeerIndex].pintsLeft = 124;
     this.setState({kegs: updatedKegs});
   }
 
   //Crud Actions
-  handleDeleteKeg = (beerName) => {
-    let selectedBeerIndex = this.getBeerIndex(beerName);
+  handleDeleteKeg = (uid) => {
+    let selectedBeerIndex = this.getBeerIndex(uid);
     let updatedKegs = [...this.state.kegs];
     updatedKegs.splice(selectedBeerIndex, 1);
     this.setState({kegs: updatedKegs});

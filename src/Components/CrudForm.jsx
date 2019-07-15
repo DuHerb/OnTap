@@ -55,7 +55,7 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
 
   const onSubmitForm = () => {
     onCreateKeg(values);
-    onSetViewedBeer(values.name)
+    onSetViewedBeer(values.uid)
     onCloseForm();
   }
 
