@@ -20,7 +20,7 @@ New beers, edits, and tap changes are instantly reflected in the Patron View.  O
 Full page form takes care of both new keg creation and edit actions.  Depending on the 'editMode', header displays appropriate header and button text.  If editing and exisiting keg, form inputs are set with the currently viewed keg's info. Otherwise, form is reset after submission.
 ![Create/Update Form](dev_resources/editForm.png)
 
-###TODO Wishlist:
+### TODO Wishlist:
 - Locations Tabs allowing admins to use same keg stock list to display unique taplists at multiple locations
 - Dynamic background images depending on selected location
 - image file uploading for new beers
@@ -32,7 +32,7 @@ Full page form takes care of both new keg creation and edit actions.  Depending 
 - database/api hookup
 - form validation
 
-###View Project
+### View Project
 
 - [your local directory]$ git clone https://github.com/DuHerb/OnTap.git
 - [OnTap]$ npm install
