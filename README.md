@@ -30,6 +30,7 @@ Full page form takes care of both new keg creation and edit actions.  Depending 
 - 'up next' section (as shown in concept)
 - write unit tests
 - database/api hookup
+- form validation
 
 ###View Project
 
