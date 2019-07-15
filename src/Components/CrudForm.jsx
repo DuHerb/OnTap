@@ -11,7 +11,7 @@ import Slide from '@material-ui/core/Slide';
 import TextField from '@material-ui/core/TextField';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-
+import { v4 } from 'uuid'
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -40,7 +40,8 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
     price: '',
     description: '',
     onTap: false,
-    imageKey: 'default'
+    imageKey: 'default',
+    uid: v4()
   });
 
   React.useEffect(()=> {
