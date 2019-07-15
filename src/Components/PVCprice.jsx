@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
@@ -12,17 +11,13 @@ const useStyles = makeStyles({
 const PVCprice = ({price}) => {
   const classes = useStyles();
   const getBG = () => {
-    return (price > 5.5) ? {backgroundColor: 'yellow'} : {backgroundColor: "green"}
+    return (price > 5.5) ? {backgroundColor: '#dcb332'} : {backgroundColor: "#b3b8b8"}
   }
   return (
     <div className={classes.container} style={getBG()}>
       <p>${price}</p>
     </div>
   )
-}
-
-PVCprice.propTypes = {
-  price: PropTypes.string
 }
 
 export default PVCprice

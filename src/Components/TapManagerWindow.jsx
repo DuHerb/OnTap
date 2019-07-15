@@ -1,16 +1,18 @@
 import React from 'react';
 import AdminCard from './AdminCard';
 
-const TapManagerWindow = ({kegs, tapStatus, onToggleTapStatus, onHandleRefillKeg, onSetViewedBeer}) => {
+const TapManagerWindow = ({kegs, tapStatus, onToggleTapStatus, onRefillKeg, onSetViewedBeer, onSellPint}) => {
   return (
     <div>
       {kegs.map((keg)=>
         <AdminCard keg={keg}
           tapStatus={tapStatus}
           onToggleTapStatus={onToggleTapStatus}
-          onHandleRefillKeg={onHandleRefillKeg}
+          onRefillKeg={onRefillKeg}
           onSetViewedBeer={onSetViewedBeer}
-          key={keg.name}/>
+          key={keg.uid}
+          onSellPint={onSellPint}
+        />
         )}
     </div>
   )

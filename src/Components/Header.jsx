@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from 'react-router-dom';
+import logo from '../../src/images/deschuteslogo.png'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,8 +23,21 @@ const useStyles = makeStyles(theme => ({
   navLink: {
     textDecoration: "none",
     color: 'black'
+  },
+  logo: {
+    width: 150
   }
 }));
+
+const inlineHeader = {
+  backgroundColor: 'rgb(17, 13, 1)',
+  fontFamily: "'Roboto Condensed', sans-serif",
+  color: 'rgb(230, 225, 206)'
+}
+
+const beige ={
+  color: '#e6e1ce'
+}
 
 export default function Header(props) {
   const classes = useStyles();
@@ -38,26 +52,26 @@ export default function Header(props) {
   }
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+    <div className={classes.root} >
+      <AppBar position="static" color="default" style={inlineHeader}>
+        <Toolbar style={{justifyContent: 'space-between'}}>
+          <IconButton edge="start" className={classes.menuButton} style={beige} aria-label="Menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
             <MenuIcon />
           </IconButton>
           <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/">PatronView</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/pos">POSView</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/admin">AdminView</Link></MenuItem>
-      </Menu>
-          <Typography variant="h6" className={classes.title}>
-            On Tap
-          </Typography>
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/">PatronView</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/admin">AdminView</Link></MenuItem>
+          </Menu>
+          <div style={{display: 'flex', alignItems: 'center', marginRight: '5%'}}>
+            <Typography style={{fontFamily: "'Roboto Condensed', sans-serif", fontWeight: 'bolder'}}>What's On Tap@</Typography>
+            <img className={classes.logo} src={logo} alt='Deschutes Brewery'></img>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

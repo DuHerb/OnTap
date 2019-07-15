@@ -3,7 +3,12 @@ import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles({
   root: {
@@ -17,27 +22,66 @@ const useStyles = makeStyles({
   }
 })
 
-const CrudWindow = ({kegs, viewedBeer}) => {
+const CrudWindow = ({keg, viewedBeer, onDeleteKeg, onSetViewedBeer, editMode, onSetEditMode, onClickOpenForm}) => {
   const classes = useStyles();
 
-  const getBeerIndex = (beerName) => kegs.findIndex((beer)=> beer.name === beerName)
-  const selectedBeer = (beerName) => {
-    return kegs[getBeerIndex(viewedBeer)]
+  //delete dialogue control
+  const [open, setOpen] = React.useState(false);
+  function handleDialogeOpen() {
+    setOpen(true);
+  }
+
+  function handleClose() {
+    setOpen(false);
+  }
+
+  const handleOnDeleteKeg = (uid) => {
+    let beerToDelete = uid;
+    onSetViewedBeer('default')
+    onDeleteKeg(beerToDelete);
+    handleClose();
+  }
+
+  const handleOpenEditKeg = () => {
+    onSetEditMode('edit');
+    onClickOpenForm();
   }
 
   return (
     <Card className={classes.root}>
       {viewedBeer !== 'default' &&
       <>
-        <Typography className={classes.cardContent} variant='h4'>Name: {selectedBeer().name}</Typography>
-        <Typography className={classes.cardContent} variant='h6'>Brewery: {selectedBeer().brewery}</Typography>
-        <Typography className={classes.cardContent} variant='h6'>Description: {selectedBeer().description}</Typography>
-        <Typography className={classes.cardContent} variant='h6'>ABV: {selectedBeer().abv}%</Typography>
-        <Typography className={classes.cardContent} variant='h6'>Price: ${selectedBeer().price}</Typography>
+        <Typography className={classes.cardContent} variant='h4'>Name: {keg.name}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Brewery: {keg.brewery}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Style: {keg.style}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Description: {keg.description}</Typography>
+        <Typography className={classes.cardContent} variant='h6'>ABV: {keg.abv}%</Typography>
+        <Typography className={classes.cardContent} variant='h6'>Price: ${keg.price}</Typography>
         <CardActions className={classes.cardActions}>
-          <Button variant='outlined'>Edit</Button>
-          <Button variant='contained'>Delete</Button>
+          <Button variant='outlined' onClick={()=> handleOpenEditKeg()}>Edit</Button>
+          <Button variant='contained' onClick={() => handleDialogeOpen()}>Delete</Button>
         </CardActions>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+        <DialogTitle id="alert-dialog-title">{"Delete this keg?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Deleting this keg will remove it from stock of <em>ALL</em> locations.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={()=>handleClose()} color="primary">
+            Disagree
+          </Button>
+          <Button onClick={()=>handleOnDeleteKeg(keg.uid)} color="black" autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
       </>
       }
     </Card>

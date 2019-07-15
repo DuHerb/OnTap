@@ -23,16 +23,16 @@ const useStyles = makeStyles({
   }
 })
 
-const AdminCard = ({keg, tapStatus, onToggleTapStatus, onHandleRefillKeg, onSetViewedBeer}) => {
+const AdminCard = ({keg, tapStatus, onToggleTapStatus, onRefillKeg, onSetViewedBeer, onSellPint}) => {
   const classes = useStyles();
 
   let getColor = ()=> {
     if(keg.pintsLeft < 115) {
-      return 'red'
+      return '#973737'
     } else if (keg.pintsLeft < 120){
-      return 'yellow'
+      return '#eeb43d'
     } else {
-      return 'green'
+      return '#74ab63'
     }
   }
 
@@ -46,11 +46,20 @@ const AdminCard = ({keg, tapStatus, onToggleTapStatus, onHandleRefillKeg, onSetV
       {keg.name}
     </CardContent>
     <CardActions className={classes.adminCardAction}>
-      { keg.onTap && tapStatus === 'onTap' ? <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.name)}}>UnTap</Button> : <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.name)}}>Tap</Button>}
+      { keg.onTap && <Button variant='outlined' size="small" onClick={()=>{onSellPint(keg.uid)}}>Sell Pint</Button>}
+      { keg.onTap && tapStatus === 'onTap' ?
+        <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.uid)}}>UnTap</Button>
+          :
+        <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.uid)}}>Tap</Button>
+      }
 
-      {keg.pintsLeft > 120 ? <Button disabled variant='outlined' size='small' style={BG}>{keg.pintsLeft}</Button> : <Button variant='outlined' size='small' style={BG} onClick={()=> onHandleRefillKeg(keg.name)}>Refill</Button>}
+      {keg.pintsLeft > 120 ?
+        <Button disabled variant='outlined' size='small' style={BG}>{keg.pintsLeft}</Button>
+          :
+        <Button variant='outlined' size='small' style={BG} onClick={()=> onRefillKeg(keg.uid)}>Reset</Button>
+      }
 
-      <Button variant='outlined' size='small' onClick={()=> onSetViewedBeer(keg.name)}>View</Button>
+      <Button variant='outlined' size='small' onClick={()=> onSetViewedBeer(keg.uid)}>View</Button>
     </CardActions>
   </Card>
   )

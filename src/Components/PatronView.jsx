@@ -10,14 +10,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 export default function PatronView({kegs}) {
   const classes = useStyles();
-  const bgImages = require.context('../../public/Assets', true)
-console.log(kegs);
+  const bgImages = require.context('../../public/Assets', true);
 
   // eslint-disable-next-line no-unused-vars
-  // const [view, setView] = useState('patron');
   const view = 'patron'
   return (
       <Grid container>
@@ -26,8 +23,11 @@ console.log(kegs);
             let imgsrc = bgImages(`./${keg.imageKey}.png`);
             let bgStyle = {
               backgroundImage: `url(${imgsrc})`,
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat'
+              backgroundPosition: '125px center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              height: 110,
+              backgroundColor: 'rgb(230, 225, 206)'
             }
 
             return <PVCard name={keg.name}
@@ -37,13 +37,12 @@ console.log(kegs);
               pintsLeft={keg.pintsLeft}
               price={keg.price}
               description={keg.description}
-              key={keg.name}
+              key={keg.uid}
               view={view}
               bg = {bgStyle}
             />
           })
         }
-
         </Grid>
       </Grid>
   )

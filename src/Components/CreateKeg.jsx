@@ -16,8 +16,13 @@ const useStyles = makeStyles({
     margin: '0 auto'
   }
 })
-const CreateKeg = () => {
+const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm, onCreateKeg, onSetViewedBeer}) => {
   const classes = useStyles();
+
+  const handleCreateNewKeg = ()=> {
+    onSetEditMode('create');
+    onClickOpenForm();
+  }
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -26,13 +31,11 @@ const CreateKeg = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Fab color="inherit" aria-label="Add" size='small' className={classes.fab}>
+        <Fab color="inherit" aria-label="Add" size='small' className={classes.fab} onClick={handleCreateNewKeg}>
           <AddIcon />
         </Fab>
       </CardActions>
     </Card>
-
-
   )
 }
 

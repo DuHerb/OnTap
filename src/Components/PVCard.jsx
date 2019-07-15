@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -15,8 +14,6 @@ import PVCprice from './PVCprice';
 import PVCabv from './PVCabv';
 import PVCpints from './PVCpints';
 import { Paper, Button } from '@material-ui/core'
-// import Twilight from '../Assets/twilight.png'
-
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -50,11 +47,10 @@ const useStyles = makeStyles(theme => ({
     padding: '0'
   },
   title: {
-    maxWidth: '30%'
+    maxWidth: '20%',
   },
   cardRow: {
-    display: 'flex',
-    alignItems: 'center'
+    display: 'flex'
   },
   actionBox: {
     height: '105px',
@@ -66,7 +62,9 @@ const useStyles = makeStyles(theme => ({
     zIndex: '1',
     marginLeft: '-61px',
     padding: '10px 0px 10px 10px',
-    boxShadow: '1px 3px 10px -2px black'
+    boxShadow: '1px 3px 10px -2px black',
+    marginTop: 14,
+    backgroundColor: 'rgb(230, 225, 206)'
   }
 }));
 
@@ -76,6 +74,11 @@ const inlineStyle = {
 
 const expandButton ={
   padding: '8px'
+}
+
+const cardDesc = {
+  backgroundColor: 'rgb(17, 13, 1)',
+  color: '#e6e1ce'
 }
 
 function PVCard(props) {
@@ -89,35 +92,21 @@ function PVCard(props) {
   return (
     <div className={classes.cardRow}>
       <Card className={classes.card} raised={true}>
-
         <CardHeader
           style={props.bg}
-          title={<Typography className={classes.title}>{props.name}</Typography>}
-          subheader={props.brewery}
-          action = { (props.view === 'patron') ? <CardActions disableSpacing>
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-              })}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="Show more"
-            >
-
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions> :
+          title={<Typography variant='h6' className={classes.title}>{props.name}</Typography>}
+          subheader={props.style}
+          action = { (props.view === 'pos') &&
         <CardActions>
-          <Button variant="outlined" onClick={()=>props.onSellPint(props.name)}>Sell Pint</Button>
+          <Button variant="outlined" onClick={()=>props.onSellPint(props.uid)}>Sell Pint</Button>
         </CardActions>}
       />
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
+        <CardContent style={cardDesc}>
+          <Typography variant='h5'>
             {props.description}
           </Typography>
         </CardContent>
-      </Collapse>
       <CardContent className={classes.noPadding} style={inlineStyle}>
         <Paper className={classes.colorBoxContainer} square={true}>
           <PVCprice price={props.price}/>
@@ -125,31 +114,23 @@ function PVCard(props) {
           <PVCpints pintsLeft={props.pintsLeft}/>
         </Paper>
       </CardContent>
+      </Collapse>
     </Card>
     <div className={classes.actionBox}>
       <IconButton
-      style={expandButton}
-      className={clsx(classes.expand, {
-        [classes.expandOpen]: expanded,
-      })}
-      onClick={handleExpandClick}
-      aria-expanded={expanded}
-      aria-label="Show more"
-    ><ExpandMoreIcon /></IconButton>
-
+        style={expandButton}
+        className={clsx(classes.expand, {
+          [classes.expandOpen]: expanded,
+        })}
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        aria-label="Show more"
+      >
+        <ExpandMoreIcon />
+      </IconButton>
     </div>
   </div>
   )
-}
-
-PVCard.propTypes = {
-  name: PropTypes.string,
-  brewery: PropTypes.string,
-  style: PropTypes.string,
-  abv: PropTypes.string,
-  pintsLeft: PropTypes.number,
-  price: PropTypes.string,
-  description: PropTypes.string
 }
 
 export default PVCard
