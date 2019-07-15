@@ -27,7 +27,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, onSetViewedBeer}) => {
+const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, onSetViewedBeer, keg}) => {
   const classes = useStyles();
 
   //form functions
@@ -51,6 +51,13 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
     onCreateKeg(values);
     onSetViewedBeer(values.name)
     onCloseForm();
+  }
+
+  const testFunc =()=>{
+    console.log(keg);
+    console.log(editMode);
+    
+
   }
   // const [open, setOpen] = React.useState(false);
 
@@ -76,6 +83,7 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
             <Typography variant="h6" className={classes.title}>
               {editMode === 'create' ? 'Create New Keg' : 'Update Keg'}
             </Typography>
+            <Button onClick={testFunc}>Test Keg</Button>
             <Button color="inherit" onClick={onSubmitForm}>
               Submit
             </Button>

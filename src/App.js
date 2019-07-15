@@ -6,7 +6,7 @@ import POSView from './Components/POSView';
 import AdminView from './Components/AdminView';
 import { Route, HashRouter } from 'react-router-dom';
 import { kegs } from './store.js';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 export default class App extends React.Component {
   state = {
     kegs,
@@ -58,28 +58,28 @@ export default class App extends React.Component {
     return (
         <HashRouter>
           <Header/>
-            <Route exact path='/' render={()=>
-              <PatronView
-                kegs={this.getKegsOnTap()}
-              />}
-            />
-            <Route path='/pos' render={()=>
-              <POSView
-                kegs={this.getKegsOnTap()}
-                onSellPint={this.handleSellPint}
-              />}
-            />
-            <Route path='/admin'render={()=>
-              <AdminView 
-                kegsOnTap={this.getKegsOnTap()}
-                kegs={this.state.kegs}
-                onToggleTapStatus={this.handleToggleTapStatus}
-                onRefillKeg={this.handleRefillKeg}
-                onDeleteKeg={this.handleDeleteKeg}
-                onCreateKeg={this.handleCreateKeg}
-              />}
-            />
-            <Button variant='outlined' onClick={()=>this.handleCreateKeg({name: 'test keg', brewery: 'test brewery'})}>Test Create Keg</Button>
+          <Route exact path='/' render={()=>
+            <PatronView
+              kegs={this.getKegsOnTap()}
+            />}
+          />
+          <Route path='/pos' render={()=>
+            <POSView
+              kegs={this.getKegsOnTap()}
+              onSellPint={this.handleSellPint}
+            />}
+          />
+          <Route path='/admin'render={()=>
+            <AdminView
+              kegsOnTap={this.getKegsOnTap()}
+              kegs={this.state.kegs}
+              onToggleTapStatus={this.handleToggleTapStatus}
+              onRefillKeg={this.handleRefillKeg}
+              onDeleteKeg={this.handleDeleteKeg}
+              onCreateKeg={this.handleCreateKeg}
+            />}
+          />
+          {/* <Button variant='outlined' onClick={()=>this.handleCreateKeg({name: 'test keg', brewery: 'test brewery'})}>Test Create Keg</Button> */}
         </HashRouter>
     )
   }

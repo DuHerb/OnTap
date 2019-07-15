@@ -35,15 +35,15 @@ const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseF
         <Fab color="inherit" aria-label="Add" size='small' className={classes.fab} onClick={handleCreateNewKeg}>
           <AddIcon />
         </Fab>
-          <CrudForm
+      </CardActions>
+          {/* <CrudForm
             editMode={editMode}
             onSetEditMode={onSetEditMode}
             onCloseForm={onCloseForm}
             formOpen={formOpen}
             onCreateKeg={onCreateKeg}
             onSetViewedBeer={onSetViewedBeer}
-          />
-      </CardActions>
+          /> */}
     </Card>
 
 

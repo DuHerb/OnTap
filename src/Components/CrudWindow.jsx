@@ -9,6 +9,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import CrudForm from './CrudForm';
 
 const useStyles = makeStyles({
   root: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
   }
 })
 
-const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onSetViewedBeer, editMode, setEditMode}) => {
+const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onCreateKeg, onSetViewedBeer, editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm}) => {
   const classes = useStyles();
 
   const getBeerIndex = (beerName) => kegs.findIndex((beer)=> beer.name === beerName)
@@ -32,7 +33,7 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onSetViewedBeer, editMode, s
 
   //delete dialogue control
   const [open, setOpen] = React.useState(false);
-  function handleClickOpen() {
+  function handleDialogeOpen() {
     setOpen(true);
   }
 
@@ -40,11 +41,16 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onSetViewedBeer, editMode, s
     setOpen(false);
   }
 
-  const handleOnDeleteKeg = (beerName)=> {
+  const handleOnDeleteKeg = (beerName) => {
     let beerToDelete = beerName;
     onSetViewedBeer('default')
     onDeleteKeg(beerToDelete);
     handleClose();
+  }
+
+  const handleOpenEditKeg = () => {
+    onSetEditMode('edit');
+    onClickOpenForm();
   }
 
   return (
@@ -57,15 +63,15 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onSetViewedBeer, editMode, s
         <Typography className={classes.cardContent} variant='h6'>ABV: {selectedBeer().abv}%</Typography>
         <Typography className={classes.cardContent} variant='h6'>Price: ${selectedBeer().price}</Typography>
         <CardActions className={classes.cardActions}>
-          <Button variant='outlined'>Edit</Button>
-          <Button variant='contained' onClick={() => handleClickOpen()}>Delete</Button>
+          <Button variant='outlined' onClick={()=> handleOpenEditKeg()}>Edit</Button>
+          <Button variant='contained' onClick={() => handleDialogeOpen()}>Delete</Button>
         </CardActions>
         <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
         <DialogTitle id="alert-dialog-title">{"Delete this keg?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
@@ -83,6 +89,14 @@ const CrudWindow = ({kegs, viewedBeer, onDeleteKeg, onSetViewedBeer, editMode, s
       </Dialog>
       </>
       }
+      {/* <CrudForm
+        editMode={editMode}
+        onSetEditMode={onSetEditMode}
+        onCloseForm={onCloseForm}
+        formOpen={formOpen}
+        onCreateKeg={onCreateKeg}
+        onSetViewedBeer={onSetViewedBeer}
+      /> */}
     </Card>
   )
 }
