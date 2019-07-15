@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   }
 })
 
-const TapManager = ({kegsOnTap, kegs, onToggleTapStatus, onRefillKeg, onSetViewedBeer}) => {
+const TapManager = ({kegsOnTap, kegs, onToggleTapStatus, onRefillKeg, onSetViewedBeer, onSellPint}) => {
   const classes = useStyles();
 
   return (
@@ -23,6 +23,7 @@ const TapManager = ({kegsOnTap, kegs, onToggleTapStatus, onRefillKeg, onSetViewe
           onToggleTapStatus={onToggleTapStatus}
           onRefillKeg={onRefillKeg}
           onSetViewedBeer={onSetViewedBeer}
+          onSellPint={onSellPint}
         />
         <h2 className={classes.header}>Stock</h2>
         <TapManagerWindow

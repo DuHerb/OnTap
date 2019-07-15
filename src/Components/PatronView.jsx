@@ -39,7 +39,7 @@ export default function PatronView({kegs}) {
               pintsLeft={keg.pintsLeft}
               price={keg.price}
               description={keg.description}
-              key={keg.name}
+              key={keg.uid}
               view={view}
               bg = {bgStyle}
             />

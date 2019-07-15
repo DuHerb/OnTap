@@ -66,12 +66,6 @@ export default class App extends React.Component {
               kegs={this.getKegsOnTap()}
             />}
           />
-          <Route path='/pos' render={()=>
-            <POSView
-              kegs={this.getKegsOnTap()}
-              onSellPint={this.handleSellPint}
-            />}
-          />
           <Route path='/admin'render={()=>
             <AdminView
               kegsOnTap={this.getKegsOnTap()}
@@ -81,6 +75,7 @@ export default class App extends React.Component {
               onDeleteKeg={this.handleDeleteKeg}
               onCreateKeg={this.handleCreateKeg}
               onUpdateKeg={this.handleUpdateKeg}
+              onSellPint={this.handleSellPint}
             />}
           />
           {/* <Button variant='outlined' onClick={()=>this.handleUpdateKeg({brewery: 'test brewery', uid: '1', onTap: true, imageKey: 'twilight'})}>Test update Keg</Button> */}

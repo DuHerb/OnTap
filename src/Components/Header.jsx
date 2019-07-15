@@ -66,7 +66,6 @@ export default function Header(props) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/">PatronView</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/pos">POSView</Link></MenuItem>
         <MenuItem onClick={handleClose}><Link className={classes.navLink} to="/admin">AdminView</Link></MenuItem>
       </Menu>
       <div style={{display: 'flex', alignItems: 'center', marginRight: '5%'}}>

@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   }
 })
 
-const AdminCard = ({keg, tapStatus, onToggleTapStatus, onRefillKeg, onSetViewedBeer}) => {
+const AdminCard = ({keg, tapStatus, onToggleTapStatus, onRefillKeg, onSetViewedBeer, onSellPint}) => {
   const classes = useStyles();
 
   let getColor = ()=> {
@@ -46,6 +46,7 @@ const AdminCard = ({keg, tapStatus, onToggleTapStatus, onRefillKeg, onSetViewedB
       {keg.name}
     </CardContent>
     <CardActions className={classes.adminCardAction}>
+      { keg.onTap && <Button variant='outlined' size="small" onClick={()=>{onSellPint(keg.uid)}}>Sell Pint</Button>}
       { keg.onTap && tapStatus === 'onTap' ?
         <Button variant='contained' size="small" onClick={()=>{onToggleTapStatus(keg.uid)}}>UnTap</Button>
           :
@@ -55,7 +56,7 @@ const AdminCard = ({keg, tapStatus, onToggleTapStatus, onRefillKeg, onSetViewedB
       {keg.pintsLeft > 120 ?
         <Button disabled variant='outlined' size='small' style={BG}>{keg.pintsLeft}</Button>
           :
-        <Button variant='outlined' size='small' style={BG} onClick={()=> onRefillKeg(keg.uid)}>Refill</Button>
+        <Button variant='outlined' size='small' style={BG} onClick={()=> onRefillKeg(keg.uid)}>Reset</Button>
       }
 
       <Button variant='outlined' size='small' onClick={()=> onSetViewedBeer(keg.uid)}>View</Button>

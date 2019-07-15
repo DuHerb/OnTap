@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onRefillKeg, onDeleteKeg, onCreateKeg, onUpdateKeg}) {
+export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onRefillKeg, onDeleteKeg, onCreateKeg, onUpdateKeg, onSellPint}) {
   const classes = useStyles();
   const [viewedBeer, setViewedBeer] = useState('default')
   const handleSetViewedBeer = (uid) => {
@@ -31,6 +31,7 @@ export default function AdminView({kegsOnTap, kegs, onToggleTapStatus, onRefillK
             onToggleTapStatus={onToggleTapStatus}
             onRefillKeg={onRefillKeg}
             onSetViewedBeer={handleSetViewedBeer}
+            onSellPint={onSellPint}
           />
       </Grid>
       <Grid item xs={12} sm={6}>
