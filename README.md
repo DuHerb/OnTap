@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The original concept wifeframe with basic views and card style layout.  POS view was removed in version 0.0.2 as the Admin view developed more functionality and adopted a card style managment schema rather than the select boxes as shown in the wireframes.
 ![Component Tree](/dev_resources/on-tap-wireframe.jpg)
 
-This project used styles and assets from the Deschutes Brewery.  This project was originally concieved (while I was an employee at their Portland, OR pub) to solve a problem - we tapped so many kegs so quickly, managers couldn't keep up with updateing the current taplist on the brewery website.
+This project used styles and assets from the Deschutes Brewery.  This project was originally concieved while I was an employee at their Portland, OR pub. We were tapping so many kegs so quickly, managers couldn't keep up with updateing the current taplist on the brewery website and customers would come in looking for beers we were no longer serving.
 ![Front Page/ Patron View](dev_resources/patronView.jpg)
 
 New beers, edits, and tap changes are instantly reflected in the Patron View.  Or they will be -- This project currently has no persistent data other than a hardcoded store with 5 demo beers.  I would like to look into using apollo and graphQL to interface with a cloud service to persist data.
