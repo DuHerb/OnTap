@@ -27,7 +27,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen}) => {
+const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg}) => {
   const classes = useStyles();
 
   //form functions
@@ -45,10 +45,12 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen}) => {
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
-    console.log(values[name]);
-    
   };
-  
+
+  const onSubmitForm = () => {
+    onCreateKeg(values);
+    onCloseForm();
+  }
   // const [open, setOpen] = React.useState(false);
 
   // function handleClickOpen() {
@@ -73,7 +75,7 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen}) => {
             <Typography variant="h6" className={classes.title}>
               {editMode === 'create' ? 'Create New Keg' : 'Update Keg'}
             </Typography>
-            <Button color="inherit" onClick={onCloseForm}>
+            <Button color="inherit" onClick={onSubmitForm}>
               Submit
             </Button>
           </Toolbar>

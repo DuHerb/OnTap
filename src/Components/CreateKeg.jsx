@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     margin: '0 auto'
   }
 })
-const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm}) => {
+const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseForm, onCreateKeg}) => {
   const classes = useStyles();
 
   const handleCreateNewKeg = ()=> {
@@ -35,7 +35,13 @@ const CreateKeg = ({editMode, onSetEditMode, formOpen, onClickOpenForm, onCloseF
         <Fab color="inherit" aria-label="Add" size='small' className={classes.fab} onClick={handleCreateNewKeg}>
           <AddIcon />
         </Fab>
-          <CrudForm editMode={editMode} onSetEditMode={onSetEditMode} onCloseForm={onCloseForm} formOpen={formOpen}/>
+          <CrudForm
+            editMode={editMode}
+            onSetEditMode={onSetEditMode}
+            onCloseForm={onCloseForm}
+            formOpen={formOpen}
+            onCreateKeg={onCreateKeg}
+          />
       </CardActions>
     </Card>
 

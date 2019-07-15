@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     textAlign: 'center'
   }
 })
-const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer}) => {
+const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer, onCreateKeg}) => {
 
   //edit mode
   const [editMode, setEditMode] = React.useState('view')
@@ -26,8 +26,23 @@ const TapEditor = ({viewedBeer, kegs, onDeleteKeg, onSetViewedBeer}) => {
   return (
     <>
       <h2 className={classes.header}>Keg Manager</h2>
-      <CreateKeg editMode={editMode} onSetEditMode={setEditMode} formOpen={formOpen} onClickOpenForm={handleClickOpen} onCloseForm={handleClose}/>
-      <CrudWindow kegs={kegs} viewedBeer={viewedBeer} onDeleteKeg={onDeleteKeg} onSetViewedBeer={onSetViewedBeer} editMode={editMode} onSetEditMode={setEditMode}/>
+      <CreateKeg
+        editMode={editMode}
+        onSetEditMode={setEditMode}
+        formOpen={formOpen}
+        onClickOpenForm={handleClickOpen}
+        onCloseForm={handleClose}
+        onCreateKeg={onCreateKeg}
+      />
+      <CrudWindow
+        kegs={kegs}
+        viewedBeer={viewedBeer}
+        onDeleteKeg={onDeleteKeg}
+        onSetViewedBeer={onSetViewedBeer}
+        editMode={editMode}
+        onSetEditMode={setEditMode}
+        onCreateKeg={onCreateKeg}
+      />
     </>
   )
 }
