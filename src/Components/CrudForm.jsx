@@ -69,21 +69,9 @@ const CrudForm = ({editMode, onSetEditMode, onCloseForm, formOpen, onCreateKeg, 
     onSetEditMode('');
     setValues(defaultValues);
   }
-  // const [open, setOpen] = React.useState(false);
 
-  // function handleClickOpen() {
-  //   onSetEditMode('create')
-  //   setOpen(true);
-  // }
-
-  // function handleClose() {
-  //   setOpen(false);
-  // }
   return (
     <>
-      {/* <Fab color="inherit" aria-label="Add" size='small' className={classes.fab} onClick={handleClickOpen}>
-        <AddIcon />
-      </Fab> */}
       <Dialog fullScreen open={formOpen} onClose={onCloseForm} TransitionComponent={Transition}>
         <AppBar className={classes.appBar}>
           <Toolbar>
