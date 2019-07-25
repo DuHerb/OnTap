@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/OnTap/static/css/main.b560beee.chunk.css",
+    "main.js": "/OnTap/static/js/main.b95357e3.chunk.js",
+    "main.js.map": "/OnTap/static/js/main.b95357e3.chunk.js.map",
+    "runtime~main.js": "/OnTap/static/js/runtime~main.5db36a86.js",
+    "runtime~main.js.map": "/OnTap/static/js/runtime~main.5db36a86.js.map",
+    "static/js/2.9869e9c5.chunk.js": "/OnTap/static/js/2.9869e9c5.chunk.js",
+    "static/js/2.9869e9c5.chunk.js.map": "/OnTap/static/js/2.9869e9c5.chunk.js.map",
+    "index.html": "/OnTap/index.html",
+    "precache-manifest.49d525528c3dc0a48ff7fe54f875a265.js": "/OnTap/precache-manifest.49d525528c3dc0a48ff7fe54f875a265.js",
+    "service-worker.js": "/OnTap/service-worker.js",
+    "static/css/main.b560beee.chunk.css.map": "/OnTap/static/css/main.b560beee.chunk.css.map",
+    "static/media/blackbutteporter.png": "/OnTap/static/media/blackbutteporter.e475104b.png",
+    "static/media/default.png": "/OnTap/static/media/default.1c3a43e8.png",
+    "static/media/deschuteslogo.png": "/OnTap/static/media/deschuteslogo.a74fa3c8.png",
+    "static/media/freshhaze.png": "/OnTap/static/media/freshhaze.0a33b0a0.png",
+    "static/media/freshsqueezed.png": "/OnTap/static/media/freshsqueezed.a094f50c.png",
+    "static/media/mirrorpond.png": "/OnTap/static/media/mirrorpond.b978bf37.png",
+    "static/media/index.css": "/OnTap/static/media/portlandlocation.cc728e47.png",
+    "static/media/twilight.png": "/OnTap/static/media/twilight.31291e7a.png"
+  }
+}
