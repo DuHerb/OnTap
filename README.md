@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Author: Dustin Herboldshimer
 ## Version: 0.0.3 July 14, 2019
 
-### See Live Demo on gh-pages: <a href='https://duherb.github.io/OnTap>On Tap Demo</a>
+### See Live Demo on gh-pages: <a href='https://duherb.github.io/OnTap'>On Tap Demo</a>
 ### Development Resources:
 
 #### WireFrame and Component Tree:
